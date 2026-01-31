@@ -487,11 +487,29 @@ MonoBehaviour:
     <MoveState>k__BackingField:
       _moveSpeed: 4
     _jumpHeight: 2
-  <AirState>k__BackingField: {}
+  <AirState>k__BackingField:
+    <MoveState>k__BackingField:
+      _moveSpeed: 4
+  <AttackState>k__BackingField:
+    _enableHitboxEventName: {fileID: 11400000, guid: 78add5715e64ebf4c94b6420f2c9c148,
+      type: 2}
+    _disableHitboxEventName: {fileID: 11400000, guid: cb639090cd522a841b340610b089cf72,
+      type: 2}
+    _attackConfigs:
+      _serializedList:
+      - Key: 0
+        Value: {fileID: 11400000, guid: 577f40f60ea92d84db3636d3481580b3, type: 2}
+      - Key: 1
+        Value: {fileID: 11400000, guid: 80ac6acd1664a334383cd52ece9de331, type: 2}
+      - Key: 2
+        Value: {fileID: 11400000, guid: 059afe6033163e34ea4874367919ce49, type: 2}
+      - Key: 3
+        Value: {fileID: 11400000, guid: 498cf5e15c927574ca48c60f87a89d2a, type: 2}
   _groundCheckLength: -0.4
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  <IsGrounded>k__BackingField: 0
 --- !u!114 &1183381966
 MonoBehaviour:
   m_ObjectHideFlags: 0

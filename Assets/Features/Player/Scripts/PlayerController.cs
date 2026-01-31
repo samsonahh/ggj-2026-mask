@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public StateMachine<PlayerController> StateMachine { get; private set; }
     [field: SerializeField] public GroundedSuperState GroundedState { get; private set; } = new();
     [field: SerializeField] public AirSuperState AirState { get; private set; } = new();
+    [field: SerializeField] public AttackState AttackState { get; private set; } = new();
     
     [Header("Ground Check")]
     [SerializeField] private float _groundCheckLength = 0.5f;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         // Init any states here
         GroundedState.Init(StateMachine, this);
         AirState.Init(StateMachine, this);
+        AttackState.Init(StateMachine, this);
         
         // Set the starting state
         StateMachine.ChangeState(GroundedState,true);
