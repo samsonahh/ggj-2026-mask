@@ -16,12 +16,12 @@ GameObject:
   - component: {fileID: 8768712253772527876}
   - component: {fileID: 6588183863096483629}
   - component: {fileID: 2454564629052152598}
+  - component: {fileID: 1625267194728116239}
   - component: {fileID: 7391929457495759521}
   - component: {fileID: 7443861011782553431}
   - component: {fileID: 8010256032170084518}
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
-  - component: {fileID: 1625267194728116239}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -397,6 +397,21 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1625267194728116239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5d46312901a934d977e0c6c494c2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  maxTime: 5
+  playerHealth: {fileID: 2454564629052152598}
 --- !u!114 &7391929457495759521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,21 +529,6 @@ MonoBehaviour:
   _Animator: {fileID: 1724887364013570182}
   _Transitions: {fileID: 0}
   _ActionOnDisable: 0
---- !u!114 &1625267194728116239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631939245477408515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5d46312901a934d977e0c6c494c2f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  maxTime: 5
-  playerHealth: {fileID: 2454564629052152598}
 --- !u!1 &3114049536181447855
 GameObject:
   m_ObjectHideFlags: 0

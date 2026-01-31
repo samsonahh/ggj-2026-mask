@@ -5,14 +5,11 @@ public class HealthBar : MonoBehaviour
 {
     
     public Slider healthSlider;
+    [SerializeField] private Health playerHealth;
 
-    void Awake()
+    void Update()
     {
-        healthSlider.value = healthSlider.maxValue;
+        healthSlider.value = playerHealth.currentHP/(float)playerHealth.maxHP;
     }
 
-    public void lowerHealthBar(int damage)
-    {
-        healthSlider.value -= damage;
-    }
 }

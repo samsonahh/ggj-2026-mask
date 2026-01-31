@@ -129,7 +129,8 @@ public class PlayerMaskRip : MonoBehaviour
 
     public void Revive()
     {
-        // revive and heal to full here
+        Debug.Log(gameObject.name + " Revived");
+        _health.revive();
     }
     
     private void DisablePlayer()

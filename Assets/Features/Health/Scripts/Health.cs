@@ -37,6 +37,8 @@ public class Health : MonoBehaviour
             onDamage?.Invoke(damage);
         }
     }
+    
+    [Button("Revive")]
     public void revive()
     {
         isDead = false;

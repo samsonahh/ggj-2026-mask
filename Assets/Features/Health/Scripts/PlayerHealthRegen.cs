@@ -9,14 +9,25 @@ public class PlayerHealthRegen : MonoBehaviour
     public float maxTime;
     public Health playerHealth;
     
-    void FixedUpdate()
+    void Update()
     {
-        timer += Time.fixedDeltaTime;
+        if(playerHealth.isDead == true)
+        {
+            timer = 0;
+            return;
+        }
+        if(playerHealth.currentHP == playerHealth.maxHP)
+        {
+            timer = 0;
+            return;
+        }
+
+        timer += Time.deltaTime;
         if (timer >= maxTime)
         {
             Debug.Log("Full Heal");
             playerHealth.fullHeal();
-            timer = 0;  
+            timer = 0; 
         }
     }
 
