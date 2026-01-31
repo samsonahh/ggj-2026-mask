@@ -12,7 +12,7 @@ namespace PlayerStates
         
         private protected override void OnEnter()
         {
-            _context.Animator.Play(_animationClip, 0.1f);
+            _context.Animator.Play(_animationClip);
 
             _timer = 0f;
         }

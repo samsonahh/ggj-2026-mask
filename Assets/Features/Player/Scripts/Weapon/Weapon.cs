@@ -217,7 +217,7 @@ public class Weapon : MonoBehaviour
         
         StartImpactFrames(_impactFramesTimeScale, _impactFramesDuration);
         
-        CustomGizmos.InstantiateTemporarySphere(hitPoint, 0.1f, 5f, fromTrigger ? Color.green : Color.magenta);
+        // CustomGizmos.InstantiateTemporarySphere(hitPoint, 0.1f, 5f, fromTrigger ? Color.green : Color.magenta);
     }
     
     /// <summary>

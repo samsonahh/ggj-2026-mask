@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8768712253772527876}
   - component: {fileID: 6588183863096483629}
   - component: {fileID: 2454564629052152598}
+  - component: {fileID: 7391929457495759521}
   - component: {fileID: 8010256032170084518}
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
@@ -313,7 +314,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 0}
+      _Clip: {fileID: 7400000, guid: 5a7bb6a1f4f626f46b3e5f3018165832, type: 2}
       _NormalizedStartTime: NaN
     _staggerDuration: 0.5
   references:
@@ -357,13 +358,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b522623b3167425eb052d46e1998498b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Team>k__BackingField: 0
+  <Team>k__BackingField: 1
   <OnDamageTaken>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2454564629052152598}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: TakeDamage
+      - m_Target: {fileID: 7391929457495759521}
+        m_TargetAssemblyTypeName: PlayerCombatBridge, Assembly-CSharp
+        m_MethodName: TryTakeDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -393,6 +394,18 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7391929457495759521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc00051c31d84a93a9b628896efebf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &8010256032170084518
 CapsuleCollider:
   m_ObjectHideFlags: 0

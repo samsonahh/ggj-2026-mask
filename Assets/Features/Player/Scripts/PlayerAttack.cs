@@ -50,9 +50,4 @@ public class PlayerAttack : MonoBehaviour
         AttackState.SetAttackType(_player.IsGrounded ? AttackType.GroundKick : AttackType.AirKick);
         _player.StateMachine.ChangeState(AttackState, true);
     }
-
-    private void StaggerPlayer()
-    {
-        _player.StateMachine.ChangeState(StaggeredState, true);
-    }
 }
