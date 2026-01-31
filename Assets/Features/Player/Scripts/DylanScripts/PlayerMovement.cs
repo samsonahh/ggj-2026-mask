@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(origin, radius, lastMoveDir, out hit, attackRange))
         {
-            Health health = hit.collider.GetComponent<Health>();
+            HealthTest health = hit.collider.GetComponent<HealthTest>();
             if (health != null)
             {
                 health.TakeDamage(attackDamage);
