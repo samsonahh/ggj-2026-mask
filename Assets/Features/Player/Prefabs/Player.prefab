@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6588183863096483629}
   - component: {fileID: 2454564629052152598}
   - component: {fileID: 7391929457495759521}
+  - component: {fileID: 7443861011782553431}
   - component: {fileID: 8010256032170084518}
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
@@ -386,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109b3fa76795aac49b34bd6a97ff7279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
+  maxHP: 10
   currentHP: 0
   onDamage:
     m_PersistentCalls:
@@ -406,6 +407,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc00051c31d84a93a9b628896efebf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7443861011782553431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409a0edf6a5e4ee38a2e85db4afe9e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _otherPlayerMaskRip: {fileID: 0}
+  _mashMeter: {fileID: 0}
+  <MaskRippingState>k__BackingField:
+    _animationClip:
+      _FadeDuration: 0.25
+      _Speed: 10
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: b1ba39c9e32c7434789e1c6d6257c283, type: 2}
+      _NormalizedStartTime: NaN
+  <MaskRipVictimState>k__BackingField:
+    _animationClip:
+      _FadeDuration: 0.25
+      _Speed: 10
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 52d04935fe0a9e04f961a2a67e6ae964, type: 2}
+      _NormalizedStartTime: NaN
+  references:
+    version: 2
+    RefIds: []
 --- !u!136 &8010256032170084518
 CapsuleCollider:
   m_ObjectHideFlags: 0
