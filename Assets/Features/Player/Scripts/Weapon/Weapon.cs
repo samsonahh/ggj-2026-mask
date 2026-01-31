@@ -144,11 +144,11 @@ public class Weapon : MonoBehaviour
                     CheckHitsWithSphereCast(new Ray(prevPoint, currPoint - prevPoint), Vector3.Distance(currPoint, prevPoint), _capsuleColliders[i].radius * transform.lossyScale.x);
 
                     // Debugging
-/*                    Debug.DrawLine(currPoint, prevPoint, Color.red, 2f);
-                    CustomDebug.InstantiateTemporarySphere(currPoint, capsuleColliders[i].radius * transform.lossyScale.x, 5f,
-                        Color.Lerp(new Color(1f, 0, 0, 0.1f), new Color(0, 0, 1f, 0.1f), (i + 1) / capsuleColliders.Count));
-                    CustomDebug.InstantiateTemporarySphere(prevPoint, capsuleColliders[i].radius * transform.lossyScale.x, 5f,
-                        Color.Lerp(new Color(1f, 0, 0, 0.1f), new Color(0, 0, 1f, 0.1f), (i + 1) / capsuleColliders.Count));*/
+                    /*Debug.DrawLine(currPoint, prevPoint, Color.red, 2f);
+                    CustomGizmos.InstantiateTemporarySphere(currPoint, _capsuleColliders[i].radius * transform.lossyScale.x, 1f,
+                        Color.Lerp(new Color(1f, 0, 0, 0.1f), new Color(0, 0, 1f, 0.1f), (i + 1) / _capsuleColliders.Count));
+                    CustomGizmos.InstantiateTemporarySphere(prevPoint, _capsuleColliders[i].radius * transform.lossyScale.x, 1f,
+                        Color.Lerp(new Color(1f, 0, 0, 0.1f), new Color(0, 0, 1f, 0.1f), (i + 1) / _capsuleColliders.Count));*/
                 }
             }
         }
@@ -216,7 +216,7 @@ public class Weapon : MonoBehaviour
 
         OnWeaponHit?.Invoke(hitPoint);
         
-        // CustomGizmos.InstantiateTemporarySphere(hitPoint, 0.1f, 1.5f, fromTrigger ? Color.green : Color.red);
+        CustomGizmos.InstantiateTemporarySphere(hitPoint, 0.1f, 5f, fromTrigger ? Color.green : Color.magenta);
 
         /*
         int damageValue = HolderEntity.CalculateDamage(damageMultiplier);

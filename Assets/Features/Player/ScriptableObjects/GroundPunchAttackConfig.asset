@@ -17,8 +17,8 @@ MonoBehaviour:
     _Speed: 2
     _Events:
       _NormalizedTimes:
-      - 0.15966387
-      - 0.54961216
+      - 0.15352295
+      - 0.5130899
       - NaN
       _Callbacks: []
       _Names:
@@ -28,7 +28,7 @@ MonoBehaviour:
     _NormalizedStartTime: NaN
   <Damage>k__BackingField: 1
   <ImpactFramesTimeScale>k__BackingField: 0.01
-  <ImpactFramesDuration>k__BackingField: 0.1
+  <ImpactFramesDuration>k__BackingField: 0.15
   <CameraShakeDuration>k__BackingField: 0.5
   <CameraShakeAmplitude>k__BackingField: 5
   <CameraShakeFrequency>k__BackingField: 5
