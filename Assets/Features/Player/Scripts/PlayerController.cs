@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _groundCheckLength = -0.4f;
     [SerializeField] private LayerMask _groundLayer;
     [field: SerializeField, ReadOnly] public bool IsGrounded { get; private set; }
+    
+    public float LastHorizontalVelocity { get; private set; }
 
     private void Awake()
     {
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
     
     public void Move(Vector3 move)
     {
+        LastHorizontalVelocity = move.x;
         RigidBody.MovePosition(RigidBody.position + move * Time.fixedDeltaTime);
     }
     

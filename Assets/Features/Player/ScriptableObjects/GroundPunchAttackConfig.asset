@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationClip>k__BackingField:
     _FadeDuration: 0.25
-    _Speed: 2
+    _Speed: 1.5
     _Events:
       _NormalizedTimes:
       - 0.15352295

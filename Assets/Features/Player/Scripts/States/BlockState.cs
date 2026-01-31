@@ -1,10 +1,17 @@
+using Animancer;
+using UnityEngine;
+
 namespace PlayerStates
 {
     [System.Serializable]
     public class BlockState : State<PlayerController>
     {
+        [SerializeField] private ClipTransition _animationClip;
+        
         private protected override void OnEnter()
         {
+            _context.Animator.Play(_animationClip, 0.1f);
+            
             _context.Input.OnBlockReleased += OnBlockReleased;
         }
 

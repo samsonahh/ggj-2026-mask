@@ -9,9 +9,9 @@ public class Weapon : MonoBehaviour
     private List<CapsuleCollider> _capsuleColliders = new List<CapsuleCollider>();
     
     [SerializeField] private LayerMask _hitboxLayerMask;
-    public TeamComponent HolderTeam { get; private set; }
+    public Damageable HolderDamageable { get; private set; }
     
-    public event Action<Vector3> OnWeaponHit = delegate { };
+    public event Action<Damageable, Vector3> OnWeaponHit = delegate { };
     
     #region Between-Frame Collisions
     private bool _isCheckingCollisions = false;
@@ -29,6 +29,8 @@ public class Weapon : MonoBehaviour
     private Coroutine _impactFramesCoroutine;
     private HashSet<GameObject> _objectsHitByCurrentAttack = new HashSet<GameObject>();
 
+    private int _damage;
+
     private void Awake()
     {
         _capsuleColliders = GetComponents<CapsuleCollider>().ToList();
@@ -39,7 +41,7 @@ public class Weapon : MonoBehaviour
         PopulateColliderStartEndPositions();
         DisableTriggers();
         
-        HolderTeam = GetComponentInParent<TeamComponent>();
+        HolderDamageable = GetComponentInParent<Damageable>();
     }
 
     /// <summary>
@@ -101,7 +103,6 @@ public class Weapon : MonoBehaviour
     /// <param name="other">The collider hit by the trigger</param>
     private void CheckHitboxCollisionsWithCollisions(Collision other)
     {
-        //Entity enemy = other.GetComponentInParent<Entity>();
         Vector3 hitPoint = other.collider.ClosestPointOnBounds(transform.position);
         AttemptToHit(other.collider, hitPoint, true);
     }
@@ -192,38 +193,31 @@ public class Weapon : MonoBehaviour
         if (hit == null) 
             return;
 
-        TeamComponent victimTeam = hit.GetComponentInParent<TeamComponent>();
-        if (victimTeam == null)
+        Damageable victim = hit.GetComponentInParent<Damageable>();
+        if (victim == null)
             return;
-        if (victimTeam.Team == HolderTeam.Team)
+        if (victim.Team == HolderDamageable.Team)
             return;
         
-        if (_objectsHitByCurrentAttack.Contains(victimTeam.gameObject))
+        if (_objectsHitByCurrentAttack.Contains(victim.gameObject))
             return;
-        _objectsHitByCurrentAttack.Add(victimTeam.gameObject);
+        _objectsHitByCurrentAttack.Add(victim.gameObject);
 
-        Hit(hit, hitPoint, fromTrigger);
+        Hit(victim, hitPoint, fromTrigger);
     }
     
     /// <summary>
     /// Hits an entity with the weapon, triggering impact frames, camera shake, and damage calculation.
     /// </summary>
     /// <param name="fromTrigger">Flag indicating if the hit is from the trigger.</param>
-    private void Hit(Collider hit, Vector3 hitPoint, bool fromTrigger)
+    private void Hit(Damageable victim, Vector3 hitPoint, bool fromTrigger)
     {
-        Debug.Log($"Hitting {hit.gameObject.name}");
+        victim.Damage(_damage);
+        OnWeaponHit?.Invoke(victim, hitPoint);
+        
         StartImpactFrames(_impactFramesTimeScale, _impactFramesDuration);
-
-        OnWeaponHit?.Invoke(hitPoint);
         
         CustomGizmos.InstantiateTemporarySphere(hitPoint, 0.1f, 5f, fromTrigger ? Color.green : Color.magenta);
-
-        /*
-        int damageValue = HolderEntity.CalculateDamage(damageMultiplier);
-
-        OnWeaponHit?.Invoke(HolderEntity, victim, hitPoint, damageValue);
-
-        HolderEntity.DealDamageToOtherEntity(victim, damageValue, hitPoint);*/
     }
     
     /// <summary>
@@ -321,4 +315,6 @@ public class Weapon : MonoBehaviour
             c.enabled = false;
         }
     }
+    
+    public void ConfigureDamage(int damage) => _damage = damage;
 }

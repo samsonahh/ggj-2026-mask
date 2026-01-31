@@ -57,7 +57,7 @@ namespace PlayerStates
             configInstance.SetClip(instanceClip);
             return configInstance;
         }
-
+        
         public void SetAttackType(AttackType attackType)
         {
             _currentConfig = _attackConfigInstances.GetValueOrDefault(attackType);
@@ -79,6 +79,7 @@ namespace PlayerStates
             
             _currentWeapon.ClearObjectHitList();
             _currentWeapon.ConfigureImpactFrames(_currentConfig.ImpactFramesTimeScale, _currentConfig.ImpactFramesDuration);
+            _currentWeapon.ConfigureDamage(_currentConfig.Damage);
             _currentWeapon.OnWeaponHit += OnWeaponHit;
             
             _context.Animator.Play(_currentConfig.AnimationClip, 0.1f);
@@ -105,7 +106,8 @@ namespace PlayerStates
 
         private protected override void OnFixedUpdate()
         {
-            
+            if(!_context.IsGrounded)
+                _context.Move(Vector3.right * _context.LastHorizontalVelocity);
         }
 
         private void OnAnimationClipEnd()
@@ -132,7 +134,7 @@ namespace PlayerStates
             _currentWeapon.DisableTriggers();
         }
 
-        private void OnWeaponHit(Vector3 hitPoint)
+        private void OnWeaponHit(Damageable victim, Vector3 hitPoint)
         {
             if (_currentConfig == null)
                 return;

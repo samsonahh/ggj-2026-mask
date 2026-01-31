@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerController _player;
     
     [field: SerializeField] public AttackState AttackState { get; private set; } = new();
+    [field: SerializeField] public StaggeredState StaggeredState { get; private set; } = new();
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         AttackState.Init(_player.StateMachine, _player);
+        StaggeredState.Init(_player.StateMachine, _player);
     }
 
     private void OnEnable()
@@ -47,5 +49,10 @@ public class PlayerAttack : MonoBehaviour
         
         AttackState.SetAttackType(_player.IsGrounded ? AttackType.GroundKick : AttackType.AirKick);
         _player.StateMachine.ChangeState(AttackState, true);
+    }
+
+    private void StaggerPlayer()
+    {
+        _player.StateMachine.ChangeState(StaggeredState, true);
     }
 }
