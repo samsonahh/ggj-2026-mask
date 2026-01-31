@@ -212,7 +212,7 @@ public class Weapon : MonoBehaviour
     /// <param name="fromTrigger">Flag indicating if the hit is from the trigger.</param>
     private void Hit(Damageable victim, Vector3 hitPoint, bool fromTrigger)
     {
-        victim.Damage(_damage);
+        victim.Damage(_damage, hitPoint);
         OnWeaponHit?.Invoke(victim, hitPoint);
         
         StartImpactFrames(_impactFramesTimeScale, _impactFramesDuration);

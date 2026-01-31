@@ -70,7 +70,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.1
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Behind the Gesture SDF
+  m_Name: Behind the Gesture Outline
   m_EditorClassIdentifier: 
-  hashCode: -1907740797
+  hashCode: -233254990
   material: {fileID: -4811739234469940905}
-  materialHashCode: -996096189
+  materialHashCode: 423633490
   m_Version: 1.1.0
   m_SourceFontFileGUID: 308c42727a02bc641b49b11e89e8b962
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 308c42727a02bc641b49b11e89e8b962,

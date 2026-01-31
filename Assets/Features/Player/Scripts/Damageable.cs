@@ -6,6 +6,7 @@ public class Damageable : MonoBehaviour
 {
     [field: SerializeField] public int Team { get; private set; }
     [field: SerializeField] public UnityEvent<int> OnDamageTaken { get; private set; } = new();
+    [field: SerializeField] public UnityEvent<int, Vector3> OnDamageTakenPosition { get; private set; } = new();
 
     public void ChangeTeam(int team)
     {
@@ -13,8 +14,9 @@ public class Damageable : MonoBehaviour
     }
 
     [Button("Take Damage")]
-    public void Damage(int damage)
+    public void Damage(int damage, Vector3 position)
     {
         OnDamageTaken?.Invoke(damage);
+        OnDamageTakenPosition?.Invoke(damage, position);
     }
 }

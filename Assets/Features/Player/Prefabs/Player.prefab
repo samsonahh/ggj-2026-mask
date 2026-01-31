@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 8010256032170084518}
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
+  - component: {fileID: 6893260647568474513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -376,6 +377,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <OnDamageTakenPosition>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6893260647568474513}
+        m_TargetAssemblyTypeName: DamageNumberSpawner, Assembly-CSharp
+        m_MethodName: SpawnDamageNumber
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2454564629052152598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +545,20 @@ MonoBehaviour:
   _Animator: {fileID: 1724887364013570182}
   _Transitions: {fileID: 0}
   _ActionOnDisable: 0
+--- !u!114 &6893260647568474513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf59766de6c54bdba8f9276ef6240526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageNumberPrefab: {fileID: 2643853616637880772, guid: b1edadd69b60a424c94b56c01f038615,
+    type: 3}
 --- !u!1 &3114049536181447855
 GameObject:
   m_ObjectHideFlags: 0
