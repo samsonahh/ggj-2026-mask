@@ -251,7 +251,7 @@ MonoBehaviour:
     m_ActionId: 592efb92-b955-4126-8314-d0b569435479
     m_ActionName: Player/Jump[/Keyboard/w]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -335,12 +335,12 @@ MonoBehaviour:
   <BlockState>k__BackingField:
     _animationClip:
       _FadeDuration: 0.25
-      _Speed: 1
+      _Speed: 5
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: b1ba39c9e32c7434789e1c6d6257c283, type: 2}
+      _Clip: {fileID: 7400000, guid: 52d04935fe0a9e04f961a2a67e6ae964, type: 2}
       _NormalizedStartTime: NaN
   _isBlockHeld: 0
   references:

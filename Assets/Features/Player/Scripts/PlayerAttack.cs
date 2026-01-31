@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnHit1()
     {
-        if (_player.StateMachine.CurrentState == AttackState)
+        if (!CanHit())
             return;
         
         AttackState.SetAttackType(_player.IsGrounded ? AttackType.GroundPunch : AttackType.AirPunch);
@@ -44,10 +44,21 @@ public class PlayerAttack : MonoBehaviour
     
     private void OnHit2()
     {
-        if (_player.StateMachine.CurrentState == AttackState)
+        if (!CanHit())
             return;
         
         AttackState.SetAttackType(_player.IsGrounded ? AttackType.GroundKick : AttackType.AirKick);
         _player.StateMachine.ChangeState(AttackState, true);
+    }
+
+    private bool CanHit()
+    {
+        if (_player.StateMachine.CurrentState == AttackState)
+            return false;
+        
+        if(_player.StateMachine.CurrentState == StaggeredState)
+            return false;
+
+        return true;
     }
 }
