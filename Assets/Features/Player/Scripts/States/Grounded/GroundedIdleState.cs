@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using Animancer;
+using UnityEngine;
 
 namespace PlayerStates
 {
     [System.Serializable]
     public class GroundedIdleState : State<PlayerController>
     {
+        [SerializeField] private ClipTransition _animationClip;
+        
         private protected override void OnEnter()
         {
-            
+            _context.Animator.Play(_animationClip, 0.1f);
         }
 
         private protected override void OnExit()
