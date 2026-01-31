@@ -25,7 +25,7 @@ namespace PlayerStates
 
         private protected override void OnFixedUpdate()
         {
-            
+            _context.Move(Vector3.zero);
         }
         
         private protected override State<PlayerController> GetTransition()

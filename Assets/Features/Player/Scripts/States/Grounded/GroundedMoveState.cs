@@ -8,6 +8,7 @@ namespace PlayerStates
     {
         [SerializeField] private float _moveSpeed = 4f;
         [SerializeField] private ClipTransition _animationClip;
+        [SerializeField] private Transform _modelTransform;
         
         private protected override void OnEnter()
         {
@@ -33,7 +34,7 @@ namespace PlayerStates
                 direction = Vector3.left;
 
             // Mult by scale to flip anim when flipped
-            _animationClip.Speed = Mathf.Sign(_context.Input.MoveInput) * Mathf.Abs(_animationClip.Speed) * Mathf.Sign(_context.transform.localScale.x);
+            _animationClip.Speed = Mathf.Sign(_context.Input.MoveInput) * Mathf.Abs(_animationClip.Speed) * Mathf.Sign(_modelTransform.localScale.z);
             _context.Move(direction * _moveSpeed);
         }
         

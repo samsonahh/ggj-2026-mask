@@ -1096,8 +1096,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1183381964}
   - {fileID: 977438185}
+  - {fileID: 1183381964}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4900495168070925604
@@ -1180,6 +1180,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChudPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688294764710945532, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688294764710945532, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688294764710945532, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5043465722184730758, guid: d550a5e983656bc4aa78d5cec8d5c49f,
         type: 3}
