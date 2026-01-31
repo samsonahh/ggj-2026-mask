@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8107075498435821053}
   - component: {fileID: 8768712253772527876}
   - component: {fileID: 6588183863096483629}
+  - component: {fileID: 2454564629052152598}
   - component: {fileID: 8010256032170084518}
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
@@ -358,6 +359,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 0
   <OnDamageTaken>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2454564629052152598}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2454564629052152598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109b3fa76795aac49b34bd6a97ff7279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 30
+  currentHP: 0
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
 --- !u!136 &8010256032170084518

@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {   
-    private int basehealth;
     public int maxHP;
     public int currentHP;
     
@@ -20,6 +18,7 @@ public class Health : MonoBehaviour
         currentHP = maxHP;
     }
 
+    [Button("Damage")]
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
@@ -31,14 +30,4 @@ public class Health : MonoBehaviour
             onDeath?.Invoke();
         }
     }
-
-    [ContextMenu("Test / Deal 10 Damage")]
-    private void ContextDamageTest()
-    {
-        TakeDamage(10);
-    }
-
-
-
-
 }
