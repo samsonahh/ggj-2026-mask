@@ -17,14 +17,14 @@ MonoBehaviour:
     _Speed: 1.5
     _Events:
       _NormalizedTimes:
-      - 0.15966387
-      - 0.54961216
+      - 0.2727882
+      - 0.7372654
       - NaN
       _Callbacks: []
       _Names:
       - {fileID: 11400000, guid: 78add5715e64ebf4c94b6420f2c9c148, type: 2}
       - {fileID: 11400000, guid: cb639090cd522a841b340610b089cf72, type: 2}
-    _Clip: {fileID: 7400000, guid: 2b2729b2ee451f445a64b207a10a797a, type: 2}
+    _Clip: {fileID: 7400000, guid: edc01683409b61f4b846b30e8a857719, type: 2}
     _NormalizedStartTime: NaN
   <Damage>k__BackingField: 2
   <ImpactFramesTimeScale>k__BackingField: 0.01

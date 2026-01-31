@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 8010256032170084518}
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
+  - component: {fileID: 1625267194728116239}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -292,21 +293,21 @@ MonoBehaviour:
       - Key: 0
         Value: {fileID: 11400000, guid: 577f40f60ea92d84db3636d3481580b3, type: 2}
       - Key: 1
-        Value: {fileID: 11400000, guid: 577f40f60ea92d84db3636d3481580b3, type: 2}
+        Value: {fileID: 11400000, guid: 0358e098643a95443acf9dd3400be533, type: 2}
       - Key: 2
         Value: {fileID: 11400000, guid: 577f40f60ea92d84db3636d3481580b3, type: 2}
       - Key: 3
-        Value: {fileID: 11400000, guid: 577f40f60ea92d84db3636d3481580b3, type: 2}
+        Value: {fileID: 11400000, guid: 0358e098643a95443acf9dd3400be533, type: 2}
     _attackWeapons:
       _serializedList:
       - Key: 0
         Value: {fileID: 4418617608204284089}
       - Key: 1
-        Value: {fileID: 4418617608204284089}
+        Value: {fileID: 6674595488520558548}
       - Key: 2
         Value: {fileID: 4418617608204284089}
       - Key: 3
-        Value: {fileID: 4418617608204284089}
+        Value: {fileID: 6674595488520558548}
   <StaggeredState>k__BackingField:
     _animationClip:
       _FadeDuration: 0.25
@@ -336,12 +337,12 @@ MonoBehaviour:
   <BlockState>k__BackingField:
     _animationClip:
       _FadeDuration: 0.25
-      _Speed: 5
+      _Speed: 1
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 52d04935fe0a9e04f961a2a67e6ae964, type: 2}
+      _Clip: {fileID: 7400000, guid: 0e380f946aea7804e9488663b65df2a6, type: 2}
       _NormalizedStartTime: NaN
   _isBlockHeld: 0
   references:
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 0
+  isDead: 0
   onDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -441,6 +443,9 @@ MonoBehaviour:
         _Names: []
       _Clip: {fileID: 7400000, guid: 52d04935fe0a9e04f961a2a67e6ae964, type: 2}
       _NormalizedStartTime: NaN
+  _mashCameraShakeDuration: 0.25
+  _mashCameraShakeAmplitude: 5
+  _mashCameraShakeFrequency: 5
   references:
     version: 2
     RefIds: []
@@ -509,6 +514,92 @@ MonoBehaviour:
   _Animator: {fileID: 1724887364013570182}
   _Transitions: {fileID: 0}
   _ActionOnDisable: 0
+--- !u!114 &1625267194728116239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5d46312901a934d977e0c6c494c2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  maxTime: 5
+  playerHealth: {fileID: 2454564629052152598}
+--- !u!1 &3114049536181447855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3075452475094496318}
+  - component: {fileID: 6674595488520558548}
+  - component: {fileID: 7194949634639018835}
+  m_Layer: 7
+  m_Name: FootWeaponL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3075452475094496318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114049536181447855}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.534104, y: 0.5017115, z: -0.20578495, w: -0.64859176}
+  m_LocalPosition: {x: 0.00163, y: 0.00203, z: -0.00069}
+  m_LocalScale: {x: 1, y: 1, z: 1.3722}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6327283234548147780}
+  m_LocalEulerAnglesHint: {x: 64.069, y: -99.738, z: -37.961}
+--- !u!114 &6674595488520558548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114049536181447855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a30b3323f064e5697adce2b073cce85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitboxLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!136 &7194949634639018835
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114049536181447855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0015
+  m_Height: 0.005
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.0015, z: 0}
 --- !u!1 &3270234469799255881
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +1011,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6626926249013642448}
+    - targetCorrespondingSourceObject: {fileID: 9198421570265288481, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3075452475094496318}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4f0306f10340b459b5fd0a835d6eb5, type: 3}
 --- !u!95 &1724887364013570182 stripped
@@ -937,6 +1032,12 @@ Transform:
 --- !u!4 &4688294764710945532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7599954136873405337, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2911679666432698725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6327283234548147780 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9198421570265288481, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
     type: 3}
   m_PrefabInstance: {fileID: 2911679666432698725}
   m_PrefabAsset: {fileID: 0}
