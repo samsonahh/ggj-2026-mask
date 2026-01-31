@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [RequireComponent(typeof(CinemachineVirtualCamera))]
@@ -19,7 +20,8 @@ public class CameraShaker : Singleton<CameraShaker>
         _cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
         _cinemachineBasicMultiChannelPerlin = _cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
-
+    
+    [Button("Test Shake")]
     public void ShakeCamera(float amplitude, float frequency, float duration)
     {
         _cinemachineBasicMultiChannelPerlin.ReSeed();

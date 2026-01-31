@@ -59,7 +59,10 @@ namespace PlayerStates
 
         private void OnAnimationClipEnd()
         {
-            _stateMachine.ChangeState(_context.GroundedState);
+            if(_context.IsGrounded)
+                _stateMachine.ChangeState(_context.GroundedState);
+            else
+                _stateMachine.ChangeState(_context.AirState);
         }
         
         private void EnableHitbox()

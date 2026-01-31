@@ -12,7 +12,7 @@ public class PlayerInputReader : MonoBehaviour
     public event Action OnJump = delegate { };
     public event Action OnHit1 = delegate { };
     public event Action OnHit2 = delegate { };
-    public event Action OnBlockHeld = delegate { };
+    public event Action OnBlockStarted = delegate { };
     public event Action OnBlockReleased = delegate { };
     
     public void InvokeMove(InputAction.CallbackContext context)
@@ -42,7 +42,7 @@ public class PlayerInputReader : MonoBehaviour
     public void InvokeBlock(InputAction.CallbackContext context)
     {
         if(context.started)
-            OnBlockHeld.Invoke();
+            OnBlockStarted.Invoke();
         else if(context.canceled)
             OnBlockReleased.Invoke();
     }
