@@ -1,6 +1,7 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerAttack))]
@@ -13,6 +14,8 @@ public class PlayerCombatBridge : MonoBehaviour
     private PlayerBlock _playerBlock;
     private Health _health;
 
+    public UnityEvent<int, Vector3> OnFinalDamageTaken = new();
+
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
@@ -21,15 +24,15 @@ public class PlayerCombatBridge : MonoBehaviour
         _health = GetComponent<Health>();
     }
 
-    public void TryTakeDamage(int damage)
+    public void TryTakeDamage(int damage, Vector3 hitPoint)
     {
+        int finalDamage = damage;
         if (_playerController.StateMachine.CurrentState == _playerBlock.BlockState)
-        {
-            _health.TakeDamage(damage/2);
-            return;
-        }
-
-        _health.TakeDamage(damage);
-        _playerController.StateMachine.ChangeState(_playerAttack.StaggeredState, true);
+            finalDamage /= 2;
+        
+        _health.TakeDamage(finalDamage);
+        OnFinalDamageTaken?.Invoke(finalDamage, hitPoint);
+        if (_playerController.StateMachine.CurrentState != _playerBlock.BlockState)
+            _playerController.StateMachine.ChangeState(_playerAttack.StaggeredState, true);
     }
 }

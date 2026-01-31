@@ -19,10 +19,12 @@ public class MashMeter : MonoBehaviour
     [field: SerializeField] public UnityEvent OnMashStarted { get; private set; } = new();
     [field: SerializeField] public UnityEvent<Ripper> OnWin { get; private set; } = new();
     
-    [Header("On Finish Camera Shake")]
+    [Header("On Finish Juice")]
     [SerializeField] private float _cameraShakeDuration = 2f;
     [SerializeField] private float _cameraShakeAmplitude = 10f;
     [SerializeField] private float _cameraShakeFrequency = 10f;
+    [SerializeField] private float _hitStopTimeScale = 0.01f;
+    [SerializeField] private float _hitStopDuration = 0.3f;
 
     private void Awake()
     {
@@ -58,6 +60,7 @@ public class MashMeter : MonoBehaviour
     private void Win(Ripper winner)
     {
         CameraShaker.Instance.ShakeCamera(_cameraShakeAmplitude, _cameraShakeFrequency, _cameraShakeDuration);
+        TimeScaleManager.Instance.StartImpactFrames(_hitStopTimeScale, _hitStopDuration);
         OnWin?.Invoke(winner);
     }
 }

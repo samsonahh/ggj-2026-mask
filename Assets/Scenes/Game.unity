@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 31921516}
   - component: {fileID: 31921519}
   - component: {fileID: 31921518}
+  - component: {fileID: 31921520}
   m_Layer: 5
   m_Name: HPBARSGROUP
   m_TagString: Untagged
@@ -235,6 +236,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &31921520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31921514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d2ebf7f3ab4011b03ee99d0c8522de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &63315985
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +280,7 @@ Transform:
   - {fileID: 981585702}
   - {fileID: 1092417051}
   - {fileID: 801270324}
+  - {fileID: 757884789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97297006
@@ -553,10 +567,10 @@ RectTransform:
   - {fileID: 331151456}
   m_Father: {fileID: 1230204940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 202}
-  m_SizeDelta: {x: 684.1388, y: 65.0872}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 1023.8894, y: 121.7123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293776968
 MonoBehaviour:
@@ -1185,6 +1199,55 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &757884788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757884789}
+  - component: {fileID: 757884790}
+  m_Layer: 0
+  m_Name: GlobalVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757884789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757884788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63315986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &757884790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757884788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5873493e1d2bd9d4da927ec0f863e211, type: 2}
 --- !u!1 &780400978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,9 +1726,9 @@ MonoBehaviour:
   <OnMashStarted>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1230204941}
+      - m_Target: {fileID: 31921518}
         m_TargetAssemblyTypeName: UIPanel, Assembly-CSharp
-        m_MethodName: Focus
+        m_MethodName: FocusPanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1230204941}
@@ -1691,8 +1754,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _cameraShakeDuration: 2
-  _cameraShakeAmplitude: 20
-  _cameraShakeFrequency: 20
+  _cameraShakeAmplitude: 15
+  _cameraShakeFrequency: 15
+  _hitStopTimeScale: 0.001
+  _hitStopDuration: 0.3
 --- !u!4 &977438185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5043465722184730758, guid: d550a5e983656bc4aa78d5cec8d5c49f,
@@ -2871,7 +2936,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

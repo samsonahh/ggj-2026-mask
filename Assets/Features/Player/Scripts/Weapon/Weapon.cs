@@ -25,8 +25,6 @@ public class Weapon : MonoBehaviour
     
     private float _impactFramesTimeScale;
     private float _impactFramesDuration;
-    private float _impactFramesRemainingTime;
-    private Coroutine _impactFramesCoroutine;
     private HashSet<GameObject> _objectsHitByCurrentAttack = new HashSet<GameObject>();
 
     private int _damage;
@@ -215,48 +213,9 @@ public class Weapon : MonoBehaviour
         victim.Damage(_damage, hitPoint);
         OnWeaponHit?.Invoke(victim, hitPoint);
         
-        StartImpactFrames(_impactFramesTimeScale, _impactFramesDuration);
+        TimeScaleManager.Instance.StartImpactFrames(_impactFramesTimeScale, _impactFramesDuration);
         
         // CustomGizmos.InstantiateTemporarySphere(hitPoint, 0.1f, 5f, fromTrigger ? Color.green : Color.magenta);
-    }
-    
-    /// <summary>
-    /// Starts the impact frames with the specified time scale and duration.
-    /// </summary>
-    /// <param name="timeScale">The time scale of the impact frames.</param>
-    /// <param name="duration">The duration of the impact frames.</param>
-    private void StartImpactFrames(float timeScale, float duration)
-    {
-        if (duration <= 0) 
-            return;
-
-        if(_impactFramesCoroutine != null)
-        {
-            _impactFramesRemainingTime = Mathf.Max(_impactFramesRemainingTime, duration);
-            return;
-        }
-        
-        _impactFramesRemainingTime = duration;
-        _impactFramesCoroutine = StartCoroutine(ImpactFramesCoroutine(timeScale));
-    }
-
-    /// <summary>
-    /// Coroutine that handles the impact frames of the weapon.
-    /// </summary>
-    /// <param name="timeScale">The time scale of the impact frames.</param>
-    private IEnumerator ImpactFramesCoroutine(float timeScale)
-    {
-        TimeScaleManager.Instance.SetTimeScale(timeScale);
-
-        while (_impactFramesRemainingTime > 0f)
-        {
-            _impactFramesRemainingTime -= Time.unscaledDeltaTime;
-            yield return null;
-        }
-        _impactFramesRemainingTime = 0f;
-
-        TimeScaleManager.Instance.SetTimeScale(1);
-        _impactFramesCoroutine = null;
     }
 
     /// <summary>

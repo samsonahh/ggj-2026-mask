@@ -364,25 +364,13 @@ MonoBehaviour:
   <Team>k__BackingField: 1
   <OnDamageTaken>k__BackingField:
     m_PersistentCalls:
+      m_Calls: []
+  <OnDamageTakenPosition>k__BackingField:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7391929457495759521}
         m_TargetAssemblyTypeName: PlayerCombatBridge, Assembly-CSharp
         m_MethodName: TryTakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  <OnDamageTakenPosition>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6893260647568474513}
-        m_TargetAssemblyTypeName: DamageNumberSpawner, Assembly-CSharp
-        m_MethodName: SpawnDamageNumber
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -440,6 +428,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc00051c31d84a93a9b628896efebf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnFinalDamageTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6893260647568474513}
+        m_TargetAssemblyTypeName: DamageNumberSpawner, Assembly-CSharp
+        m_MethodName: SpawnDamageNumber
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7443861011782553431
 MonoBehaviour:
   m_ObjectHideFlags: 0

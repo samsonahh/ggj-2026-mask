@@ -1,11 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class TimeScaleManager : Singleton<TimeScaleManager>
 {
     public float DefaultFixedDeltaTime { get; private set; }
     private float _previousTimeScale = 1f;
-
+    
+    private float _impactFramesRemainingTime;
+    private Coroutine _impactFramesCoroutine;
+    
     private void Start()
     {
         DefaultFixedDeltaTime = Time.fixedDeltaTime;
@@ -26,5 +30,35 @@ public class TimeScaleManager : Singleton<TimeScaleManager>
         
         Time.timeScale = timeScale;
         Time.fixedDeltaTime = DefaultFixedDeltaTime * timeScale;
+    }
+    
+    public void StartImpactFrames(float timeScale, float duration)
+    {
+        if (duration <= 0) 
+            return;
+
+        if(_impactFramesCoroutine != null)
+        {
+            _impactFramesRemainingTime = Mathf.Max(_impactFramesRemainingTime, duration);
+            return;
+        }
+        
+        _impactFramesRemainingTime = duration;
+        _impactFramesCoroutine = StartCoroutine(ImpactFramesCoroutine(timeScale));
+    }
+    
+    private IEnumerator ImpactFramesCoroutine(float timeScale)
+    {
+        SetTimeScale(timeScale);
+
+        while (_impactFramesRemainingTime > 0f)
+        {
+            _impactFramesRemainingTime -= Time.unscaledDeltaTime;
+            yield return null;
+        }
+        _impactFramesRemainingTime = 0f;
+
+        SetTimeScale(1);
+        _impactFramesCoroutine = null;
     }
 }
