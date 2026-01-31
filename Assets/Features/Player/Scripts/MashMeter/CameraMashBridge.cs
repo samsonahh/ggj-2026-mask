@@ -8,8 +8,8 @@ using UnityEngine;
 public class CameraMashBridge : MonoBehaviour
 {
     private CinemachineVirtualCamera _camera;
-    [SerializeField, Required] private PlayerController _chud;
-    [SerializeField,  Required] private PlayerController _chum;
+    [SerializeField, Required] private Transform _chudFace;
+    [SerializeField,  Required] private Transform _chumFace;
     [SerializeField,  Required] private MashMeter _mashMeter;
 
     [SerializeField] private float _targetOrthoSize = 1f;
@@ -18,6 +18,7 @@ public class CameraMashBridge : MonoBehaviour
 
     private float _originalOrthoSize;
     private Vector3 _startingPosition;
+    private Quaternion _startingRotation;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class CameraMashBridge : MonoBehaviour
         
         _originalOrthoSize = _camera.m_Lens.OrthographicSize;
         _startingPosition = transform.position;
+        _startingRotation = transform.rotation;
     }
 
     private void OnEnable()
@@ -50,9 +52,10 @@ public class CameraMashBridge : MonoBehaviour
         }).SetEase(_transitionEaseType)
         .SetId(_camera);;
         
-        Vector3 betweenPlayersPos = (_chum.transform.position + _chum.transform.position) / 2f;
+        Vector3 betweenPlayersPos = (_chudFace.position + _chumFace.transform.position) / 2f;
         Vector3 outwardDirection = _startingPosition - betweenPlayersPos;
-        transform.DOMove(betweenPlayersPos + outwardDirection.WithX(0f).WithZ(0f), _transitionDuration).SetEase(_transitionEaseType);
+        transform.DOMove(betweenPlayersPos + outwardDirection.WithX(0f).WithY(0f), _transitionDuration).SetEase(_transitionEaseType);
+        transform.DORotate(Vector3.zero, _transitionDuration).SetEase(_transitionEaseType);
     }
 
     private void OnMashFinished(MashMeter.Ripper winner)
@@ -65,5 +68,6 @@ public class CameraMashBridge : MonoBehaviour
         }).SetEase(_transitionEaseType)
         .SetId(_camera);
         transform.DOMove(_startingPosition, _transitionDuration).SetEase(_transitionEaseType);
+        transform.DORotateQuaternion(_startingRotation, _transitionDuration).SetEase(_transitionEaseType);
     }
 }

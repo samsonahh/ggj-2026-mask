@@ -863,6 +863,12 @@ Transform:
   - {fileID: 976844151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &622591941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4893690023159018521, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8515941836700206303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &633898632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1516,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 63315986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &817754192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4893690023159018521, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1359858963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &940513745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,8 +2336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1ff71878c24c48ad29e94425d8b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chud: {fileID: 1750394144}
-  _chum: {fileID: 1427628167}
+  _chudFace: {fileID: 622591941}
+  _chumFace: {fileID: 817754192}
   _mashMeter: {fileID: 976844152}
   _targetOrthoSize: 1
   _transitionDuration: 0.5
@@ -2556,18 +2568,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1359858963}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1427628167 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8574920931582419955, guid: d550a5e983656bc4aa78d5cec8d5c49f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1359858963}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427628156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d91a9d688a34486b4ceb2602504225c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1427628172 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2454564629052152598, guid: d550a5e983656bc4aa78d5cec8d5c49f,
@@ -3044,18 +3044,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596077562}
   m_CullTransparentMesh: 1
---- !u!114 &1750394144 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8574920931582419955, guid: d550a5e983656bc4aa78d5cec8d5c49f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8515941836700206303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d91a9d688a34486b4ceb2602504225c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1765915498
 GameObject:
   m_ObjectHideFlags: 0
