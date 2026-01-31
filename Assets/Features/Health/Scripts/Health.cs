@@ -22,19 +22,20 @@ public class Health : MonoBehaviour
     [Button("Damage")]
     public void TakeDamage(int damage)
     {
+        if (isDead)
+            return;
+        
+        currentHP -= damage;
+        if (currentHP >= maxHP)
+            currentHP = maxHP;
+            
+        onDamage?.Invoke(damage);
+        
         if (currentHP <= 0)
         {
             currentHP = 0;
-            onDeath?.Invoke();
             isDead = true;
-        }
-        else if(isDead == false)
-        {
-            currentHP -= damage;
-            if (currentHP >= maxHP)
-                currentHP = maxHP;
-            
-            onDamage?.Invoke(damage);
+            onDeath?.Invoke();
         }
     }
     
@@ -49,8 +50,7 @@ public class Health : MonoBehaviour
     [Button("FullHeal")]
     public void fullHeal()
     {
-        currentHP = maxHP;
-        onDamage?.Invoke(-currentHP);
+        Heal(maxHP);
     }
 
     public void Heal(int healAmount)

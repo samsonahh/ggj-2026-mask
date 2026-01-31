@@ -26,8 +26,7 @@ public class PlayerMaskRip : MonoBehaviour
     [SerializeField] private float _mashCameraShakeDuration = 0.25f;
     [SerializeField] private float _mashCameraShakeAmplitude = 5f;
     [SerializeField] private float _mashCameraShakeFrequency = 5f;
-
-
+    
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -56,26 +55,15 @@ public class PlayerMaskRip : MonoBehaviour
     private void OnDeath()
     {
         // start mask ripping
-        StartRipper();
-        _otherPlayerMaskRip.StartVictim();
+        StartVictim();
+        _otherPlayerMaskRip.StartRipper();
 
-        InputReader.OnHit1 += Ripper_OnMash;
-        _otherPlayerMaskRip.InputReader.OnHit1 += Victim_OnMash;
+        InputReader.OnHit1 += Victim_OnMash;
+        _otherPlayerMaskRip.InputReader.OnHit1 += Ripper_OnMash;
 
         _mashMeter.ResetMashMeter();
         _mashMeter.StartMash();
         _mashMeter.OnWin.AddListener(OnMashFinished);
-    }
-
-    private void OnMaskRippingFailed()
-    {
-        _otherPlayerMaskRip.Revive();
-        
-        EndRipping();
-        _otherPlayerMaskRip.EndRipping();
-        
-        InputReader.OnHit1 -= Ripper_OnMash;
-        _otherPlayerMaskRip.InputReader.OnHit1 -= Victim_OnMash;
     }
 
     private void OnMaskRippingSuccess()
@@ -83,8 +71,19 @@ public class PlayerMaskRip : MonoBehaviour
         EndRipping();
         _otherPlayerMaskRip.EndRipping();
         
-        InputReader.OnHit1 -= Ripper_OnMash;
-        _otherPlayerMaskRip.InputReader.OnHit1 -= Victim_OnMash;
+        InputReader.OnHit1 -= Victim_OnMash;
+        _otherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
+    }
+
+    private void OnMaskRippingFailed()
+    {
+        Revive();
+        
+        EndRipping();
+        _otherPlayerMaskRip.EndRipping();
+        
+        InputReader.OnHit1 -= Victim_OnMash;
+        _otherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
     }
 
     private void Ripper_OnMash()
@@ -101,6 +100,7 @@ public class PlayerMaskRip : MonoBehaviour
 
     private void OnMashFinished(MashMeter.Ripper player)
     {
+        Debug.Log(player);
         if(player == MashMeter.Ripper.Ripper)
             OnMaskRippingSuccess();
         else
