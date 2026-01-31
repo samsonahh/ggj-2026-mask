@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UIOutline
+    uniqueID: 3103435751
+    locked: 0
+  - name: HPBars
+    uniqueID: 2470605293
+    locked: 0
