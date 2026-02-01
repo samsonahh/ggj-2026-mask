@@ -2143,8 +2143,8 @@ MonoBehaviour:
   _ripWinSfxName: {fileID: 11400000, guid: a22d864f48ebf0e4ca055ed2352f3b0f, type: 2}
   _ripFailSfxName: {fileID: 11400000, guid: a22d864f48ebf0e4ca055ed2352f3b0f, type: 2}
   _cameraShakeDuration: 2
-  _cameraShakeAmplitude: 15
-  _cameraShakeFrequency: 15
+  _cameraShakeAmplitude: 10
+  _cameraShakeFrequency: 5
   _hitStopTimeScale: 0.001
   _hitStopDuration: 0.3
 --- !u!4 &977438185 stripped
@@ -2477,8 +2477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backgroundSprites:
-  - {fileID: 21300000, guid: 924a687b62fc6ad4b984651652e43e47, type: 3}
-  - {fileID: 21300000, guid: 7b94acd7139881a45a6e4533c9cb6ce3, type: 3}
+  - {fileID: 21300000, guid: ea8ccb9d6778b074db7c1866118a1744, type: 3}
+  - {fileID: 21300000, guid: 3be6b8fde7fdbf443aa18755a34bd96b, type: 3}
 --- !u!1 &1148990497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +2927,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChumPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454564629052152598, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: maxHP
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5043465722184730758, guid: d550a5e983656bc4aa78d5cec8d5c49f,
         type: 3}
@@ -4164,6 +4169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChudPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454564629052152598, guid: 0e764f64ddf4ae8419bf537742323dd9,
+        type: 3}
+      propertyPath: maxHP
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2615007066428172145, guid: 0e764f64ddf4ae8419bf537742323dd9,
         type: 3}

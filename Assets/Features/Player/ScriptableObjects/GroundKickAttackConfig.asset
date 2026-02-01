@@ -26,7 +26,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: cb639090cd522a841b340610b089cf72, type: 2}
     _Clip: {fileID: 7400000, guid: edc01683409b61f4b846b30e8a857719, type: 2}
     _NormalizedStartTime: NaN
-  <Damage>k__BackingField: 2
+  <Damage>k__BackingField: 6
   <ImpactSfxName>k__BackingField: {fileID: 11400000, guid: 86b74529a6a02b64796d00ad32e7b78f,
     type: 2}
   <SwingSfxName>k__BackingField: {fileID: 11400000, guid: 9da8ebd021e68114b935eb7ad293abeb,
