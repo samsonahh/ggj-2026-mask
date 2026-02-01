@@ -3077,13 +3077,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maskTextureSpritePairs:
-  - Texture: {fileID: 2800000, guid: d3fec1d7d2c493f47ae5286377c770d7, type: 3}
+  - Material: {fileID: 2100000, guid: d28c59e3f0278394597ed7481fbbf6eb, type: 2}
     Sprite: {fileID: 21300000, guid: 3c1cd34d03af46945ba737313aa7aad6, type: 3}
-  - Texture: {fileID: 2800000, guid: 608d64246627628419dcfcac3c3f77c9, type: 3}
+  - Material: {fileID: 2100000, guid: 304a7506ad63c2242b5d506edda8cbaa, type: 2}
     Sprite: {fileID: 21300000, guid: b1a9bc0909647d645be8fc42cd7eafc1, type: 3}
-  - Texture: {fileID: 2800000, guid: 2a806f4a408f1fd49bff2aee6cf91e0e, type: 3}
+  - Material: {fileID: 2100000, guid: 20e0da6b6e7c43e4a85ba524db2ec120, type: 2}
     Sprite: {fileID: 21300000, guid: 31a07f439f782ec42ab22fcc926b41a5, type: 3}
-  - Texture: {fileID: 2800000, guid: 0c143c79ac5b3d549aa31dcc9d68a5da, type: 3}
+  - Material: {fileID: 2100000, guid: 7ba238d8d6ef697459d2e87fc367cf4c, type: 2}
     Sprite: {fileID: 21300000, guid: 83a4bfa1e770d704790d22c07c6cb169, type: 3}
   _playerOneMaskImage: {fileID: 548200916}
   _playerTwoMaskImage: {fileID: 785964806}
