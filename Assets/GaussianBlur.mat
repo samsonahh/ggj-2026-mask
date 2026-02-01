@@ -85,9 +85,9 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BlurIntensity: 0.687
+    - _BlurIntensity: 0
     - _BlurRadius: 10
-    - _BorderWidth: 37
+    - _BorderWidth: 89
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -100,7 +100,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FeatherPx: 150
-    - _FeatherSize: 21
+    - _FeatherSize: 170
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

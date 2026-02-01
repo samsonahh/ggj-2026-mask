@@ -1,5 +1,6 @@
 ﻿using System;
 using Animancer;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,6 +41,13 @@ public class MashMeter : MonoBehaviour
     [SerializeField] private float _cameraShakeFrequency = 10f;
     [SerializeField] private float _hitStopTimeScale = 0.01f;
     [SerializeField] private float _hitStopDuration = 0.3f;
+    
+    [Header("Blur")]
+    [SerializeField] private Material _blurMaterial;
+    [SerializeField] private float _maxFeatherSize = 140f;
+    [SerializeField] private float _minFeatherSize = 110f;
+    [SerializeField] private float _blurTweenDuration = 0.15f;
+    [SerializeField] private Ease _blurTweenEaseType = Ease.OutCubic;
 
     private bool _isMashing;
     
@@ -49,6 +57,8 @@ public class MashMeter : MonoBehaviour
     private void Awake()
     {
         ResetMashMeter();
+        
+        _blurMaterial.SetFloat("_BlurIntensity", 0f);
     }
 
     public void ResetMashMeter()
@@ -61,6 +71,9 @@ public class MashMeter : MonoBehaviour
         _isMashing = true;
         _passiveCameraShakeTimer = 0f;
         OnMashStarted.Invoke();
+        
+        _blurMaterial.SetFloat("_BlurIntensity", 1f);
+        _blurMaterial.SetFloat("_FeatherSize", _maxFeatherSize);
     }
 
     public void SetFlipped(bool flipped) => IsFlipped = flipped;
@@ -110,6 +123,10 @@ public class MashMeter : MonoBehaviour
     private void OnMeterMashed()
     {
         OnMash?.Invoke();
+        _blurMaterial.SetFloat("_FeatherSize", _maxFeatherSize);
+        _blurMaterial.DOFloat(_minFeatherSize, "_FeatherSize", _blurTweenDuration)
+            .SetEase(_blurTweenEaseType)
+            .SetLoops(2, LoopType.Yoyo);
         AudioManager.Instance.Play(_stretchOneShotSfxName, AudioManager.MixerTarget.SFX, null, Random.Range(0.8f, 1.2f));
     }
 
@@ -126,5 +143,7 @@ public class MashMeter : MonoBehaviour
         TimeScaleManager.Instance.StartImpactFrames(_hitStopTimeScale, _hitStopDuration);
         CameraShaker.Instance.ShakeCamera(_cameraShakeAmplitude, _cameraShakeFrequency, _cameraShakeDuration);
         OnWin?.Invoke(winner);
+        
+        _blurMaterial.SetFloat("_BlurIntensity", 0f);
     }
 }
