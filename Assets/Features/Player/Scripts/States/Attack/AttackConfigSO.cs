@@ -10,6 +10,7 @@ namespace PlayerStates
         [field: SerializeField] public ClipTransition AnimationClip { get; private set; }
         [field: SerializeField] public int Damage { get; private set; } = 1;
         [field: SerializeField] public StringAsset SfxName { get; private set; }
+        [field: SerializeField] public bool WillStagger { get; private set; }
         
         [field: Header("Impact Frames")]
         [field: SerializeField] public float ImpactFramesTimeScale { get; private set; } = 0.05f;

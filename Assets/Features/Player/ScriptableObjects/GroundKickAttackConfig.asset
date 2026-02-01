@@ -29,6 +29,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 2
   <SfxName>k__BackingField: {fileID: 11400000, guid: 86b74529a6a02b64796d00ad32e7b78f,
     type: 2}
+  <WillStagger>k__BackingField: 1
   <ImpactFramesTimeScale>k__BackingField: 0.01
   <ImpactFramesDuration>k__BackingField: 0.15
   <CameraShakeDuration>k__BackingField: 0.5

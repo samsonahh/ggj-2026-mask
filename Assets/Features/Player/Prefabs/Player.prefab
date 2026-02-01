@@ -459,25 +459,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _otherPlayerMaskRip: {fileID: 0}
   _mashMeter: {fileID: 0}
+  _startMaskRipDelay: 0.5
   <MaskRippingState>k__BackingField:
     _animationClip:
       _FadeDuration: 0.25
-      _Speed: 10
+      _Speed: 1
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: b1ba39c9e32c7434789e1c6d6257c283, type: 2}
+      _Clip: {fileID: 7400000, guid: 9dc524658aa4c5b48ac99ba87adb35ad, type: 2}
       _NormalizedStartTime: NaN
   <MaskRipVictimState>k__BackingField:
     _animationClip:
       _FadeDuration: 0.25
-      _Speed: 10
+      _Speed: 1
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 52d04935fe0a9e04f961a2a67e6ae964, type: 2}
+      _Clip: {fileID: 7400000, guid: cdfcab5b546e31e498fd6cb3a01aeb51, type: 2}
       _NormalizedStartTime: NaN
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5

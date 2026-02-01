@@ -42,9 +42,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 67ffa4c19e07fe94cb2f52a6f239110d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -196,4 +196,8 @@ MonoBehaviour:
     - Key: {fileID: 11400000, guid: d56964954bd23d745a1f65a592246c52, type: 2}
       Value: {fileID: 8300000, guid: 4d2f1936caa4d914383fce8dbf689142, type: 3}
   _musicBank:
-    _serializedList: []
+    _serializedList:
+    - Key: {fileID: 11400000, guid: 400b8467ab1070d41a4b7cd1c04d78aa, type: 2}
+      Value: {fileID: 8300000, guid: 67ffa4c19e07fe94cb2f52a6f239110d, type: 3}
+    - Key: {fileID: 11400000, guid: 05071c6ea2edf084487791cfcb163578, type: 2}
+      Value: {fileID: 8300000, guid: adb396a807e026f459f46cdbe2792123, type: 3}

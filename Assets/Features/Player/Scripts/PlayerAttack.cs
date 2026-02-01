@@ -3,9 +3,11 @@ using PlayerStates;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerBlock))]
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerController _player;
+    private PlayerBlock _playerBlock;
     
     [field: SerializeField] public AttackState AttackState { get; private set; } = new();
     [field: SerializeField] public StaggeredState StaggeredState { get; private set; } = new();
@@ -13,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _player = GetComponent<PlayerController>();
+        _playerBlock = GetComponent<PlayerBlock>();
     }
 
     private void Start()
@@ -58,7 +61,18 @@ public class PlayerAttack : MonoBehaviour
         
         if(_player.StateMachine.CurrentState == StaggeredState)
             return false;
-
+        
+        if(_player.StateMachine.CurrentState == _playerBlock.BlockState)
+            return false;
+        
         return true;
+    }
+
+    public void TryStagger()
+    {
+        if (_player.StateMachine.CurrentState == _playerBlock.BlockState)
+            return;
+        
+        _player.StateMachine.ChangeState(StaggeredState, true);
     }
 }

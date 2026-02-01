@@ -64,8 +64,8 @@ public class MashMeter : MonoBehaviour
 
     private void Win(Ripper winner)
     {
-        CameraShaker.Instance.ShakeCamera(_cameraShakeAmplitude, _cameraShakeFrequency, _cameraShakeDuration);
         TimeScaleManager.Instance.StartImpactFrames(_hitStopTimeScale, _hitStopDuration);
+        CameraShaker.Instance.ShakeCamera(_cameraShakeAmplitude, _cameraShakeFrequency, _cameraShakeDuration);
         OnWin?.Invoke(winner);
     }
 }

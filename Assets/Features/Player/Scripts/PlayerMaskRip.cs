@@ -111,7 +111,6 @@ public class PlayerMaskRip : MonoBehaviour
 
     private void OnMashFinished(MashMeter.Ripper player)
     {
-        Debug.Log(player);
         if(player == MashMeter.Ripper.Ripper)
             OnMaskRippingSuccess();
         else

@@ -32,7 +32,5 @@ public class PlayerCombatBridge : MonoBehaviour
         
         _health.TakeDamage(finalDamage);
         OnFinalDamageTaken?.Invoke(finalDamage, hitPoint);
-        if (_playerController.StateMachine.CurrentState != _playerBlock.BlockState)
-            _playerController.StateMachine.ChangeState(_playerAttack.StaggeredState, true);
     }
 }

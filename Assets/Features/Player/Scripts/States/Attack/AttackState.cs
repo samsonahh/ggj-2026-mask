@@ -141,6 +141,11 @@ namespace PlayerStates
             
             CameraShaker.Instance.ShakeCamera(_currentConfig.CameraShakeAmplitude, _currentConfig.CameraShakeFrequency, _currentConfig.CameraShakeDuration);
             AudioManager.Instance.Play(_currentConfig.SfxName, AudioManager.MixerTarget.SFX, hitPoint, Random.Range(0.8f, 1.2f));
+            
+            if (_currentConfig.WillStagger && victim.TryGetComponent(out PlayerAttack victimPlayerAttack))
+            {
+                victimPlayerAttack.TryStagger();
+            }
         }
     }
 }
