@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
     public Damageable HolderDamageable { get; private set; }
     
     public event Action<Damageable, Vector3> OnWeaponHit = delegate { };
+
+    [SerializeField] private GameObject _trailObject;
     
     #region Between-Frame Collisions
     private bool _isCheckingCollisions = false;
@@ -256,6 +258,8 @@ public class Weapon : MonoBehaviour
         {
             c.enabled = true;
         }
+        
+        _trailObject.SetActive(true);
     }
 
     /// <summary>
@@ -267,7 +271,7 @@ public class Weapon : MonoBehaviour
         _isCheckingCollisions = false;
 
         _willDoDamage = false;
-        // trailParticle?.Stop();
+        _trailObject.SetActive(false);
 
         foreach (CapsuleCollider c in _capsuleColliders)
         {

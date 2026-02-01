@@ -1949,8 +1949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxMashMeterValue>k__BackingField: 20
   <MashMeterValue>k__BackingField: 0
-  _ripperMashStrength: 1.1
-  _victimMashStrength: 1
+  _mashStrength: 1
+  _ripperPassiveMashSpeed: 0.25
   <OnMashStarted>k__BackingField:
     m_PersistentCalls:
       m_Calls:
