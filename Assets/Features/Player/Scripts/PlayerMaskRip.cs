@@ -52,6 +52,9 @@ public class PlayerMaskRip : MonoBehaviour
     [SerializeField] private float _mashCameraShakeDuration = 0.25f;
     [SerializeField] private float _mashCameraShakeAmplitude = 5f;
     [SerializeField] private float _mashCameraShakeFrequency = 5f;
+
+    [SerializeField] private float _winDelay = 1f;
+    public UnityEvent OnDelayedWin = new();
     
     private void Awake()
     {
@@ -199,6 +202,7 @@ public class PlayerMaskRip : MonoBehaviour
     public void Win()
     {
         _playerController.StateMachine.ChangeState(WinState, true);
+        DOVirtual.DelayedCall(_winDelay, () => { OnDelayedWin.Invoke(); });
     }
 
     public void Lose()

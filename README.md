@@ -23,3 +23,7 @@ Healing Spell by EminYILDIRIM -- https://freesound.org/s/563662/ -- License: Att
 Jingle_Win_00.wav by LittleRobotSoundFactory -- https://freesound.org/s/270466/ -- License: Attribution 4.0
 
 Scream 2.mp3 by HiddenBandKid -- https://freesound.org/s/572496/ -- License: Attribution 3.0
+
+CLICK_181.wav by Jaszunio15 -- https://freesound.org/s/421312/ -- License: Creative Commons 0
+
+Click 1.mp3 by SomeoneCool15 -- https://freesound.org/s/423771/ -- License: Creative Commons 0
