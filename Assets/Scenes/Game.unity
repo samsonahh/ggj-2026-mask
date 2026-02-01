@@ -1981,6 +1981,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _stretchOneShotSfxName: {fileID: 11400000, guid: a22d864f48ebf0e4ca055ed2352f3b0f,
+    type: 2}
+  _ripWinSfxName: {fileID: 11400000, guid: a22d864f48ebf0e4ca055ed2352f3b0f, type: 2}
+  _ripFailSfxName: {fileID: 11400000, guid: a22d864f48ebf0e4ca055ed2352f3b0f, type: 2}
   _cameraShakeDuration: 2
   _cameraShakeAmplitude: 15
   _cameraShakeFrequency: 15
