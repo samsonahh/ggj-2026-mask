@@ -10287,6 +10287,26 @@ MonoBehaviour:
         _Names: []
       _Clip: {fileID: 7400000, guid: 17fb887b31d06124b88797d31eecfd2f, type: 2}
       _NormalizedStartTime: NaN
+  <WinState>k__BackingField:
+    _animationClip:
+      _FadeDuration: 0.25
+      _Speed: 1
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: c0ef947635b88ac4e8812910ca275d14, type: 2}
+      _NormalizedStartTime: NaN
+  <LoseState>k__BackingField:
+    _animationClip:
+      _FadeDuration: 0.25
+      _Speed: 1
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 50fe7e5ef02a8224f9886ec22240cd03, type: 2}
+      _NormalizedStartTime: NaN
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5
   _mashCameraShakeFrequency: 5

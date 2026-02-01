@@ -34,6 +34,8 @@ public class PlayerMaskRip : MonoBehaviour
     
     [field: SerializeField] public MaskRippingState MaskRippingState { get; private set; }  
     [field: SerializeField] public MaskRipVictimState MaskRipVictimState { get; private set; }
+    [field: SerializeField] public WinState WinState { get; private set; }
+    [field: SerializeField] public LoseState LoseState { get; private set; }
     
     [Header("Camera Shake")]
     [SerializeField] private float _mashCameraShakeDuration = 0.25f;
@@ -56,6 +58,8 @@ public class PlayerMaskRip : MonoBehaviour
     {
         MaskRippingState.Init(_playerController.StateMachine, _playerController);
         MaskRipVictimState.Init(_playerController.StateMachine, _playerController);
+        WinState.Init(_playerController.StateMachine, _playerController);
+        LoseState.Init(_playerController.StateMachine, _playerController);
     }
 
     private void OnEnable()
@@ -100,8 +104,8 @@ public class PlayerMaskRip : MonoBehaviour
 
     private void OnMaskRippingSuccess()
     {
-        EndRipping();
-        _otherPlayerMaskRip.EndRipping();
+        Lose();
+        _otherPlayerMaskRip.Win();
         
         InputReader.OnHit1 -= Victim_OnMash;
         _otherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
@@ -162,6 +166,16 @@ public class PlayerMaskRip : MonoBehaviour
     {
         Debug.Log(gameObject.name + " Revived");
         _health.revive();
+    }
+
+    public void Win()
+    {
+        _playerController.StateMachine.ChangeState(WinState, true);
+    }
+
+    public void Lose()
+    {
+        _playerController.StateMachine.ChangeState(LoseState, true);
     }
     
     public void DisablePlayer()
