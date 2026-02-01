@@ -14,24 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationClip>k__BackingField:
     _FadeDuration: 0.25
-    _Speed: 1.5
+    _Speed: 1
     _Events:
       _NormalizedTimes:
-      - 0.15966387
-      - 0.54961216
+      - 0.42216358
+      - 1.0070361
       - NaN
       _Callbacks: []
       _Names:
       - {fileID: 11400000, guid: 78add5715e64ebf4c94b6420f2c9c148, type: 2}
       - {fileID: 11400000, guid: cb639090cd522a841b340610b089cf72, type: 2}
-    _Clip: {fileID: 7400000, guid: 2b2729b2ee451f445a64b207a10a797a, type: 2}
+    _Clip: {fileID: 7400000, guid: 34499f3fb38af2a4c8ec5cc8ea0bf74b, type: 2}
     _NormalizedStartTime: NaN
   <Damage>k__BackingField: 2
   <ImpactFramesTimeScale>k__BackingField: 0.01
   <ImpactFramesDuration>k__BackingField: 0.15
-  <CameraShakeDuration>k__BackingField: 0.5
-  <CameraShakeAmplitude>k__BackingField: 5
-  <CameraShakeFrequency>k__BackingField: 5
+  <CameraShakeDuration>k__BackingField: 0.8
+  <CameraShakeAmplitude>k__BackingField: 8
+  <CameraShakeFrequency>k__BackingField: 10
   references:
     version: 2
     RefIds: []
