@@ -1105,7 +1105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 756508183}
   - component: {fileID: 756508185}
-  - component: {fileID: 756508184}
   m_Layer: 5
   m_Name: PlayerTwoHPSlider
   m_TagString: Untagged
@@ -1134,20 +1133,6 @@ RectTransform:
   m_AnchoredPosition: {x: 78.54938, y: 3.438797}
   m_SizeDelta: {x: -192.0879, y: -153.6576}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &756508184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756508182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e2873d620755543871fd04f9f2fe7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 756508185}
-  playerHealth: {fileID: 1427628172}
 --- !u!114 &756508185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,6 +2639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505159262}
+  - component: {fileID: 1505159263}
   m_Layer: 5
   m_Name: PlayerTwoHPBar
   m_TagString: Untagged
@@ -2682,6 +2668,23 @@ RectTransform:
   m_AnchoredPosition: {x: -320, y: 0}
   m_SizeDelta: {x: 640, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1505159263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505159261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e2873d620755543871fd04f9f2fe7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 756508185}
+  playerHealth: {fileID: 1427628172}
+  shakeDuration: 0.2
+  shakeIntensity: 10
+  shakeFrequency: 25
 --- !u!1 &1525744141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,6 +3003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1559330642}
+  - component: {fileID: 1559330643}
   m_Layer: 5
   m_Name: PlayerOneHPBar
   m_TagString: Untagged
@@ -3028,6 +3032,23 @@ RectTransform:
   m_AnchoredPosition: {x: 320, y: 0}
   m_SizeDelta: {x: 640, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1559330643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559330641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e2873d620755543871fd04f9f2fe7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1984724746}
+  playerHealth: {fileID: 8515941836700206310}
+  shakeDuration: 0.2
+  shakeIntensity: 10
+  shakeFrequency: 25
 --- !u!4 &1564784930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 879028537508034803, guid: a928363c4bf16394fb9648944370202a,
@@ -3379,7 +3400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1984724744}
   - component: {fileID: 1984724746}
-  - component: {fileID: 1984724745}
   m_Layer: 5
   m_Name: PlayerOneHPSlider
   m_TagString: Untagged
@@ -3408,20 +3428,6 @@ RectTransform:
   m_AnchoredPosition: {x: 78.54938, y: 3.438797}
   m_SizeDelta: {x: -192.0879, y: -153.6576}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1984724745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984724743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e2873d620755543871fd04f9f2fe7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1984724746}
-  playerHealth: {fileID: 8515941836700206310}
 --- !u!114 &1984724746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3716,11 +3722,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7112591758897765997, guid: d550a5e983656bc4aa78d5cec8d5c49f,
-        type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 7443861011782553431, guid: d550a5e983656bc4aa78d5cec8d5c49f,
         type: 3}

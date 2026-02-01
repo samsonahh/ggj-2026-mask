@@ -16,6 +16,9 @@ public class Damageable : MonoBehaviour
     [Button("Take Damage")]
     public void Damage(int damage, Vector3 position)
     {
+        if (!enabled)
+            return;
+        
         OnDamageTaken?.Invoke(damage);
         OnDamageTakenPosition?.Invoke(damage, position);
     }

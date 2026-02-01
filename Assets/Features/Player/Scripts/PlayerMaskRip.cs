@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using PlayerStates;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInputReader))]
 [RequireComponent(typeof(PlayerAttack))]
 [RequireComponent(typeof(PlayerBlock))]
+[RequireComponent(typeof(Damageable))]
 public class PlayerMaskRip : MonoBehaviour
 {
     private Health _health;
@@ -15,9 +17,12 @@ public class PlayerMaskRip : MonoBehaviour
     public PlayerInputReader InputReader {get; private set;}
     private PlayerAttack _playerAttack;
     private PlayerBlock _playerBlock;
+    private Damageable _damageable;
     
     [SerializeField, Required] private PlayerMaskRip _otherPlayerMaskRip;
     [SerializeField, Required] private MashMeter _mashMeter;
+
+    [SerializeField] private float _startMaskRipDelay = 0.5f;
     
     [field: SerializeField] public MaskRippingState MaskRippingState { get; private set; }  
     [field: SerializeField] public MaskRipVictimState MaskRipVictimState { get; private set; }
@@ -34,6 +39,7 @@ public class PlayerMaskRip : MonoBehaviour
         InputReader = GetComponent<PlayerInputReader>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerBlock = GetComponent<PlayerBlock>();
+        _damageable = GetComponent<Damageable>();
     }
 
     private void Start()
@@ -54,7 +60,12 @@ public class PlayerMaskRip : MonoBehaviour
 
     private void OnDeath()
     {
-        // start mask ripping
+        DisablePlayer();
+        DOVirtual.DelayedCall(_startMaskRipDelay, StartMaskRip);
+    }
+
+    private void StartMaskRip()
+    {
         StartVictim();
         _otherPlayerMaskRip.StartRipper();
 
@@ -133,16 +144,18 @@ public class PlayerMaskRip : MonoBehaviour
         _health.revive();
     }
     
-    private void DisablePlayer()
+    public void DisablePlayer()
     {
         _playerAttack.enabled = false;
         _playerBlock.enabled = false;
+        _damageable.enabled = false;
     }
 
-    private void EnablePlayer()
+    public void EnablePlayer()
     {
         _playerAttack.enabled = true;
         _playerBlock.enabled = true;
+        _damageable.enabled = true;
     }
 
     private void ShakeCamera()

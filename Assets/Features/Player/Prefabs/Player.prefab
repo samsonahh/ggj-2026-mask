@@ -313,15 +313,15 @@ MonoBehaviour:
         Value: {fileID: 6674595488520558548}
   <StaggeredState>k__BackingField:
     _animationClip:
-      _FadeDuration: 0.25
-      _Speed: 1
+      _FadeDuration: 0
+      _Speed: 5
       _Events:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 5a7bb6a1f4f626f46b3e5f3018165832, type: 2}
+      _Clip: {fileID: 7400000, guid: 4c6db84c21f898041a5a1a479afaa96a, type: 2}
       _NormalizedStartTime: NaN
-    _staggerDuration: 0.5
+    _staggerDuration: 0.3
   references:
     version: 2
     RefIds: []
