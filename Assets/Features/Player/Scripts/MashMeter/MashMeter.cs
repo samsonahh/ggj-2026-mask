@@ -22,11 +22,17 @@ public class MashMeter : MonoBehaviour
 
     [field: SerializeField] public UnityEvent OnMashStarted { get; private set; } = new();
     [field: SerializeField] public UnityEvent<Ripper> OnWin { get; private set; } = new();
-    
+        
     [Header("Mash")]
     [SerializeField] private StringAsset _stretchOneShotSfxName;
     [SerializeField] private StringAsset _ripWinSfxName;
     [SerializeField] private StringAsset _ripFailSfxName;
+    
+    [Header("Passive Juice")]
+    [SerializeField] private float _passiveCameraShakeInterval = 0.5f;
+    [SerializeField] private float _passiveCameraShakeAmplitude = 2f;
+    [SerializeField] private float _passiveCameraShakeFrequency = 7.5f;
+    private float _passiveCameraShakeTimer;
     
     [Header("On Finish Juice")]
     [SerializeField] private float _cameraShakeDuration = 2f;
@@ -36,6 +42,9 @@ public class MashMeter : MonoBehaviour
     [SerializeField] private float _hitStopDuration = 0.3f;
 
     private bool _isMashing;
+    
+    public event Action OnMash = delegate { };
+    public bool IsFlipped { get; private set; }
 
     private void Awake()
     {
@@ -50,13 +59,25 @@ public class MashMeter : MonoBehaviour
     public void StartMash()
     {
         _isMashing = true;
+        _passiveCameraShakeTimer = 0f;
         OnMashStarted.Invoke();
     }
+
+    public void SetFlipped(bool flipped) => IsFlipped = flipped;
 
     private void Update()
     {
         if (!_isMashing)
             return;
+        
+        // passive cam shake
+        _passiveCameraShakeTimer += Time.deltaTime;
+        if (_passiveCameraShakeTimer >= _passiveCameraShakeInterval)
+        {
+            _passiveCameraShakeTimer = 0f;
+            if(!CameraShaker.Instance.IsShaking)
+                CameraShaker.Instance.ShakeCamera(_passiveCameraShakeAmplitude, _passiveCameraShakeFrequency, _passiveCameraShakeInterval);
+        }
         
         // ripper has meter slowly creep towards their side
         MashMeterValue = Mathf.Clamp(MashMeterValue - _ripperPassiveMashSpeed * Time.deltaTime, 0f, MaxMashMeterValue);
@@ -88,14 +109,19 @@ public class MashMeter : MonoBehaviour
 
     private void OnMeterMashed()
     {
+        OnMash?.Invoke();
         AudioManager.Instance.Play(_stretchOneShotSfxName, AudioManager.MixerTarget.SFX, null, Random.Range(0.8f, 1.2f));
     }
 
     private void Win(Ripper winner)
     {
         _isMashing = false;
-        
-        AudioManager.Instance.Play(winner == Ripper.Ripper ? _ripWinSfxName : _ripFailSfxName, AudioManager.MixerTarget.SFX);
+
+        if (winner == Ripper.Ripper)
+        {
+            AudioManager.Instance.Play(_ripWinSfxName, AudioManager.MixerTarget.SFX);
+            AudioManager.Instance.Play(_ripFailSfxName, AudioManager.MixerTarget.SFX, null, Random.Range(0.4f, 1.6f));
+        }
         
         TimeScaleManager.Instance.StartImpactFrames(_hitStopTimeScale, _hitStopDuration);
         CameraShaker.Instance.ShakeCamera(_cameraShakeAmplitude, _cameraShakeFrequency, _cameraShakeDuration);

@@ -1,5 +1,7 @@
 # Sounds Used
 
+BGM by Zahir Lara
+
 Cyber Punch 03 by JohnLoser -- https://freesound.org/s/573378/ -- License: Attribution 4.0
 
 Punch (4) by johnfolker -- https://freesound.org/s/269230/ -- License: Creative Commons 0
@@ -17,3 +19,7 @@ buzzer sportif.wav by Naïma -- https://freesound.org/s/510026/ -- License: Crea
 death_blood_splatter.mp3 by minian89 -- https://freesound.org/s/195954/ -- License: Creative Commons 0
 
 Healing Spell by EminYILDIRIM -- https://freesound.org/s/563662/ -- License: Attribution 4.0
+
+Jingle_Win_00.wav by LittleRobotSoundFactory -- https://freesound.org/s/270466/ -- License: Attribution 4.0
+
+Scream 2.mp3 by HiddenBandKid -- https://freesound.org/s/572496/ -- License: Attribution 3.0

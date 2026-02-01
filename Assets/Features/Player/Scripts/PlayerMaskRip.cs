@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(PlayerAttack))]
 [RequireComponent(typeof(PlayerBlock))]
 [RequireComponent(typeof(Damageable))]
+[RequireComponent(typeof(PlayerHealthRegen))]
 public class PlayerMaskRip : MonoBehaviour
 {
     private Health _health;
@@ -20,6 +21,7 @@ public class PlayerMaskRip : MonoBehaviour
     private PlayerAttack _playerAttack;
     private PlayerBlock _playerBlock;
     private Damageable _damageable;
+    private PlayerHealthRegen _healthRegen;
     
     [SerializeField, Required] private PlayerMaskRip _otherPlayerMaskRip;
     [SerializeField, Required] private MashMeter _mashMeter;
@@ -27,6 +29,8 @@ public class PlayerMaskRip : MonoBehaviour
     [SerializeField] private float _startMaskRipDelay = 0.5f;
     [SerializeField] private StringAsset _deathSfxName;
     [SerializeField] private ClipTransition _deathAnimClip;
+
+    [Header("Model Shake")]
     [SerializeField] private Transform _modelTransform;
     [SerializeField] private float _modelDeathShakeIntensity = 10f;
     [SerializeField] private int _modelDeathShakeFrequency = 20;
@@ -36,6 +40,13 @@ public class PlayerMaskRip : MonoBehaviour
     [field: SerializeField] public MaskRipVictimState MaskRipVictimState { get; private set; }
     [field: SerializeField] public WinState WinState { get; private set; }
     [field: SerializeField] public LoseState LoseState { get; private set; }
+    
+    [Header("Rip Mask Pos")]
+    [SerializeField] private float _playerDistanceX = 2.05f;
+    [SerializeField] private Transform _maskTransform;
+    [SerializeField] private Transform _victimMaskTargetTransform;
+    private Vector3 _victimMaskOriginalLocalPosition;
+    private Quaternion _victimMaskOriginalLocalRotation;
     
     [Header("Camera Shake")]
     [SerializeField] private float _mashCameraShakeDuration = 0.25f;
@@ -50,8 +61,11 @@ public class PlayerMaskRip : MonoBehaviour
         _playerAttack = GetComponent<PlayerAttack>();
         _playerBlock = GetComponent<PlayerBlock>();
         _damageable = GetComponent<Damageable>();
+        _healthRegen = GetComponent<PlayerHealthRegen>();
         
         _modelStartLocalPos = _modelTransform.localPosition;
+        _victimMaskOriginalLocalPosition = _maskTransform.localPosition;
+        _victimMaskOriginalLocalRotation = _maskTransform.localRotation;
     }
 
     private void Start()
@@ -75,12 +89,19 @@ public class PlayerMaskRip : MonoBehaviour
     private void OnDeath()
     {
         DisablePlayer();
+        _otherPlayerMaskRip.DisablePlayer();
         DOVirtual.DelayedCall(_startMaskRipDelay, StartMaskRip);
 
         _playerController.StateMachine.ChangeState(_playerController.GroundedState, true); // kick player out of staggered state
         _modelTransform.DOKill();
         _modelTransform.localPosition = _modelStartLocalPos;
         _modelTransform.DOShakePosition(_startMaskRipDelay, _modelDeathShakeIntensity, _modelDeathShakeFrequency);
+        
+        // offset to match anim
+        Vector3 centerPos = (transform.position + _otherPlayerMaskRip.transform.position) / 2f;
+        Vector3 dirToCenter = (centerPos - transform.position).normalized;
+        transform.position = centerPos - dirToCenter * _playerDistanceX * 0.5f;
+        _otherPlayerMaskRip.transform.position =  centerPos + dirToCenter * _playerDistanceX * 0.5f;
         
         _playerController.Animator.Play(_deathAnimClip, 0.1f);
         
@@ -98,6 +119,7 @@ public class PlayerMaskRip : MonoBehaviour
         _otherPlayerMaskRip.InputReader.OnHit1 += Ripper_OnMash;
 
         _mashMeter.ResetMashMeter();
+        _mashMeter.SetFlipped(_modelTransform.localScale.x > 0);
         _mashMeter.StartMash();
         _mashMeter.OnWin.AddListener(OnMashFinished);
     }
@@ -154,12 +176,18 @@ public class PlayerMaskRip : MonoBehaviour
     {
         DisablePlayer();
         _playerController.StateMachine.ChangeState(MaskRipVictimState);
+
+        _maskTransform.localPosition = _victimMaskTargetTransform.localPosition;
+        _maskTransform.localRotation = _victimMaskTargetTransform.localRotation;
     }
 
     public void EndRipping()
     {
         EnablePlayer();
         _playerController.StateMachine.ChangeState(_playerController.GroundedState);
+        
+        _maskTransform.localPosition = _victimMaskOriginalLocalPosition;
+        _maskTransform.localRotation = _victimMaskOriginalLocalRotation;
     }
 
     public void Revive()
@@ -176,6 +204,7 @@ public class PlayerMaskRip : MonoBehaviour
     public void Lose()
     {
         _playerController.StateMachine.ChangeState(LoseState, true);
+        HideMask();
     }
     
     public void DisablePlayer()
@@ -183,6 +212,7 @@ public class PlayerMaskRip : MonoBehaviour
         _playerAttack.enabled = false;
         _playerBlock.enabled = false;
         _damageable.enabled = false;
+        _healthRegen.enabled = false;
     }
 
     public void EnablePlayer()
@@ -190,6 +220,12 @@ public class PlayerMaskRip : MonoBehaviour
         _playerAttack.enabled = true;
         _playerBlock.enabled = true;
         _damageable.enabled = true;
+        _healthRegen.enabled = true;
+    }
+
+    public void HideMask()
+    {
+        _maskTransform.gameObject.SetActive(false);
     }
 
     private void ShakeCamera()

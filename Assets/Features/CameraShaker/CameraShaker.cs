@@ -12,6 +12,8 @@ public class CameraShaker : Singleton<CameraShaker>
     private float _startingFrequency;
     private float _shakeTimer;
     private float _shakeDuration;
+    
+    public bool IsShaking => _shakeTimer > 0;
 
     private protected override void Awake()
     {

@@ -10335,6 +10335,9 @@ MonoBehaviour:
         _Names: []
       _Clip: {fileID: 7400000, guid: 50fe7e5ef02a8224f9886ec22240cd03, type: 2}
       _NormalizedStartTime: NaN
+  _playerDistanceX: 2.05
+  _maskTransform: {fileID: 4213022795738838587}
+  _victimMaskTargetTransform: {fileID: 6518013145451400896}
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5
   _mashCameraShakeFrequency: 5
@@ -10584,6 +10587,37 @@ CapsuleCollider:
   m_Height: 0.0015
   m_Direction: 1
   m_Center: {x: 0, y: 0.0015, z: 0}
+--- !u!1 &3983715333673738305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6518013145451400896}
+  m_Layer: 6
+  m_Name: VictimMaskTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6518013145451400896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983715333673738305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.95842266, y: 0.18039417, z: 0.040896807, w: -0.21728207}
+  m_LocalPosition: {x: -0.00137, y: 0.00822, z: 0.0012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6085743748720895654}
+  m_LocalEulerAnglesHint: {x: 205.547, y: 0, z: -21.319}
 --- !u!1001 &2911679666432698725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10924,6 +10958,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4213022795738838587}
+    - targetCorrespondingSourceObject: {fileID: 8943228057521672131, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6518013145451400896}
     - targetCorrespondingSourceObject: {fileID: 3532465280837332519, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
         type: 3}
       insertIndex: -1

@@ -10335,6 +10335,9 @@ MonoBehaviour:
         _Names: []
       _Clip: {fileID: 7400000, guid: 50fe7e5ef02a8224f9886ec22240cd03, type: 2}
       _NormalizedStartTime: NaN
+  _playerDistanceX: 2.05
+  _maskTransform: {fileID: 3747403696829996062}
+  _victimMaskTargetTransform: {fileID: 6775819636721106658}
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5
   _mashCameraShakeFrequency: 5
@@ -10438,6 +10441,37 @@ MonoBehaviour:
   _randomPitchRange:
     Min: 0.6
     Max: 1.4
+--- !u!1 &2560897641039674260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6775819636721106658}
+  m_Layer: 6
+  m_Name: VictimMaskTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6775819636721106658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560897641039674260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.95842266, y: 0.18039417, z: 0.040896807, w: -0.21728207}
+  m_LocalPosition: {x: -0.00137, y: 0.00822, z: 0.0012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6085743748720895654}
+  m_LocalEulerAnglesHint: {x: 205.547, y: 0, z: -21.319}
 --- !u!1 &3114049536181447855
 GameObject:
   m_ObjectHideFlags: 0
@@ -10949,6 +10983,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3747403696829996062}
+    - targetCorrespondingSourceObject: {fileID: 8943228057521672131, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6775819636721106658}
     - targetCorrespondingSourceObject: {fileID: 3532465280837332519, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
         type: 3}
       insertIndex: -1
