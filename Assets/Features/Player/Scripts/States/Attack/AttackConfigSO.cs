@@ -9,7 +9,9 @@ namespace PlayerStates
     {
         [field: SerializeField] public ClipTransition AnimationClip { get; private set; }
         [field: SerializeField] public int Damage { get; private set; } = 1;
-        [field: SerializeField] public StringAsset SfxName { get; private set; }
+        [field: SerializeField] public StringAsset ImpactSfxName { get; private set; }
+        [field: SerializeField] public StringAsset SwingSfxName { get; private set; }
+        [field: SerializeField] public FloatRange SwingSfxPitchRange { get; private set; } = new FloatRange(0.8f, 1.2f);
         [field: SerializeField] public bool WillStagger { get; private set; }
         
         [field: Header("Impact Frames")]

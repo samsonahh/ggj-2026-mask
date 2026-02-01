@@ -124,6 +124,8 @@ namespace PlayerStates
                 return;
             
             _currentWeapon.EnableTriggers();
+            
+            AudioManager.Instance.Play(_currentConfig.SwingSfxName, AudioManager.MixerTarget.SFX, _currentWeapon.transform.position, _currentConfig.SwingSfxPitchRange.RandomValue());
         }
 
         private void DisableHitbox()
@@ -140,7 +142,7 @@ namespace PlayerStates
                 return;
             
             CameraShaker.Instance.ShakeCamera(_currentConfig.CameraShakeAmplitude, _currentConfig.CameraShakeFrequency, _currentConfig.CameraShakeDuration);
-            AudioManager.Instance.Play(_currentConfig.SfxName, AudioManager.MixerTarget.SFX, hitPoint, Random.Range(0.8f, 1.2f));
+            AudioManager.Instance.Play(_currentConfig.ImpactSfxName, AudioManager.MixerTarget.SFX, hitPoint, Random.Range(0.8f, 1.2f));
             
             if (_currentConfig.WillStagger && victim.TryGetComponent(out PlayerAttack victimPlayerAttack))
             {

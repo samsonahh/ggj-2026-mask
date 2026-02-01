@@ -7,3 +7,5 @@ OBJECTS-FURNITURE _Jumping on bed_Thikho_OwSfx by thikhomunyai -- https://freeso
 Little Fighter Jump by tailssonic -- https://freesound.org/s/686986/ -- License: Attribution 4.0
 
 Rubber Stretch Rip 1.wav by mickdow -- https://freesound.org/s/253327/ -- License: Creative Commons 0
+
+quick woosh by florianreichelt -- https://freesound.org/s/683101/ -- License: Creative Commons 0
