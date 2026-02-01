@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public bool isDead = false;
 
     public UnityEvent<int> onDamage;
+    public UnityEvent<int> onHeal;
     public UnityEvent onDeath;
 
     void Awake()
@@ -60,5 +61,6 @@ public class Health : MonoBehaviour
         {
             currentHP = maxHP;
         }
+        onHeal.Invoke(healAmount);
     }
 }

@@ -9801,6 +9801,7 @@ GameObject:
   - component: {fileID: 3561188782681775268}
   - component: {fileID: 5721030069450483579}
   - component: {fileID: 6893260647568474513}
+  - component: {fileID: 8359678966512874205}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -10193,6 +10194,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHeal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8359678966512874205}
+        m_TargetAssemblyTypeName: OneShotAudioPlayer, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7929259812473107415}
+        m_TargetAssemblyTypeName: PlayerModelFlasher, Assembly-CSharp
+        m_MethodName: OnHeal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -10392,6 +10420,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageNumberPrefab: {fileID: 2643853616637880772, guid: b1edadd69b60a424c94b56c01f038615,
     type: 3}
+--- !u!114 &8359678966512874205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d3bea0a2a41f191a27938bc779f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSfxName: {fileID: 11400000, guid: fd4b5037ef07c9648a7ea4b7ecb26a80, type: 2}
+  _mixerTarget: 2
+  _transform: {fileID: 5043465722184730758}
+  _randomPitchRange:
+    Min: 0.6
+    Max: 1.4
 --- !u!1 &3114049536181447855
 GameObject:
   m_ObjectHideFlags: 0
@@ -10955,7 +11001,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _combatBridge: {fileID: 7391929457495759521}
   _flashMaterial: {fileID: 2100000, guid: cdda38f67c514194aa13b07082c91aa6, type: 2}
+  _healFlashMaterial: {fileID: 2100000, guid: 5aa29d8071d937e4f93168968a788b62, type: 2}
   _duration: 0.03
+  _healDuration: 0.4
 --- !u!4 &6085743748720895654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8943228057521672131, guid: 6b4f0306f10340b459b5fd0a835d6eb5,

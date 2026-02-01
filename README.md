@@ -1,3 +1,5 @@
+# Sounds Used
+
 Cyber Punch 03 by JohnLoser -- https://freesound.org/s/573378/ -- License: Attribution 4.0
 
 Punch (4) by johnfolker -- https://freesound.org/s/269230/ -- License: Creative Commons 0
@@ -13,3 +15,5 @@ quick woosh by florianreichelt -- https://freesound.org/s/683101/ -- License: Cr
 buzzer sportif.wav by Naïma -- https://freesound.org/s/510026/ -- License: Creative Commons 0
 
 death_blood_splatter.mp3 by minian89 -- https://freesound.org/s/195954/ -- License: Creative Commons 0
+
+Healing Spell by EminYILDIRIM -- https://freesound.org/s/563662/ -- License: Attribution 4.0

@@ -8,7 +8,9 @@ public class PlayerModelFlasher : MonoBehaviour
 {
     [SerializeField] private PlayerCombatBridge _combatBridge;
     [SerializeField] private Material _flashMaterial;
+    [SerializeField] private Material _healFlashMaterial;
     [SerializeField] private float _duration = 0.15f;
+    [SerializeField] private float _healDuration = 0.5f;
     private Coroutine _currentFlashCoroutine;
     
     private Dictionary<Renderer, Material[]> _renderers = new Dictionary<Renderer, Material[]>();
@@ -40,13 +42,20 @@ public class PlayerModelFlasher : MonoBehaviour
     {
         if(_currentFlashCoroutine != null)
             StopCoroutine(_currentFlashCoroutine);
-        _currentFlashCoroutine = StartCoroutine(FlashCoroutine());
+        _currentFlashCoroutine = StartCoroutine(FlashCoroutine(_flashMaterial, _duration));
     }
 
-    private IEnumerator FlashCoroutine()
+    public void OnHeal()
     {
-        SetMaterials(_flashMaterial);
-        yield return new WaitForSeconds(_duration);
+        if(_currentFlashCoroutine != null)
+            StopCoroutine(_currentFlashCoroutine);
+        _currentFlashCoroutine = StartCoroutine(FlashCoroutine(_healFlashMaterial, _healDuration));
+    }
+
+    private IEnumerator FlashCoroutine(Material material, float duration)
+    {
+        SetMaterials(material);
+        yield return new WaitForSeconds(duration);
         RestoreMaterials();
         
         _currentFlashCoroutine = null;

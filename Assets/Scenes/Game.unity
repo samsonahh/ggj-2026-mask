@@ -3232,13 +3232,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 756508185}
   delayedHealthSlider: {fileID: 1494372855}
+  healthSliderFill: {fileID: 791205186}
+  delayedHealthSliderFill: {fileID: 1046037166}
   playerHealth: {fileID: 1427628172}
   delay: 0.1
   delayAnimDuration: 0.15
   delayEaseType: 21
+  healTargetColor: {r: 1, g: 0, b: 0, a: 1}
+  damageTargetColor: {r: 1, g: 0, b: 0, a: 1}
   shakeDuration: 0.2
   shakeIntensity: 10
   shakeFrequency: 25
+  healthBarHealColor: {r: 0.21097177, g: 0.93962264, b: 0.54598373, a: 1}
 --- !u!1 &1525744141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,13 +3681,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 654656274}
   delayedHealthSlider: {fileID: 494063023}
+  healthSliderFill: {fileID: 1528864214}
+  delayedHealthSliderFill: {fileID: 1678286650}
   playerHealth: {fileID: 4388335242864533156}
   delay: 0.1
   delayAnimDuration: 0.15
   delayEaseType: 21
+  healTargetColor: {r: 1, g: 0, b: 0, a: 1}
+  damageTargetColor: {r: 1, g: 0, b: 0, a: 1}
   shakeDuration: 0.2
   shakeIntensity: 10
   shakeFrequency: 25
+  healthBarHealColor: {r: 0.21097177, g: 0.93962264, b: 0.54598373, a: 1}
 --- !u!4 &1564784930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 879028537508034803, guid: a928363c4bf16394fb9648944370202a,
