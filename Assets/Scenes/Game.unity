@@ -2902,6 +2902,16 @@ PrefabInstance:
       propertyPath: _otherPlayerMaskRip
       value: 
       objectReference: {fileID: 8515941836700206304}
+    - target: {fileID: 7443861011782553431, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: <MaskRippingState>k__BackingField._animationClip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 9dc524658aa4c5b48ac99ba87adb35ad, type: 2}
+    - target: {fileID: 7443861011782553431, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: <MaskRipVictimState>k__BackingField._animationClip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 17fb887b31d06124b88797d31eecfd2f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4154,6 +4164,16 @@ PrefabInstance:
       propertyPath: _otherPlayerMaskRip
       value: 
       objectReference: {fileID: 1359858964}
+    - target: {fileID: 7443861011782553431, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: <MaskRippingState>k__BackingField._animationClip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 9dc524658aa4c5b48ac99ba87adb35ad, type: 2}
+    - target: {fileID: 7443861011782553431, guid: d550a5e983656bc4aa78d5cec8d5c49f,
+        type: 3}
+      propertyPath: <MaskRipVictimState>k__BackingField._animationClip._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 17fb887b31d06124b88797d31eecfd2f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
