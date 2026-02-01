@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Animancer;
+using UnityEngine;
 
 namespace PlayerStates
 {
@@ -10,6 +11,7 @@ namespace PlayerStates
         [field: SerializeField] public GroundedMoveState MoveState { get; private set; } = new();
 
         [SerializeField] private float _jumpHeight = 2f;
+        [SerializeField] private StringAsset _jumpSfxName;
         
         private protected override void InitializeSubStates()
         {
@@ -49,6 +51,8 @@ namespace PlayerStates
         {
             float jumpForce = CustomUtils.GetJumpForce(_jumpHeight, Physics.gravity.y);
             _context.RigidBody.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+            
+            AudioManager.Instance.Play(_jumpSfxName, AudioManager.MixerTarget.SFX, _context.transform.position, Random.Range(0.9f, 1.1f));
         }
     }
 }

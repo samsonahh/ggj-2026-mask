@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Animancer;
+using UnityEngine;
 
 namespace PlayerStates
 {
@@ -8,6 +9,8 @@ namespace PlayerStates
         public override State<PlayerController> InitialSubState => IdleState;
         [field: SerializeField] public AirIdleState IdleState { get; private set; } = new();
         [field: SerializeField] public AirMoveState MoveState { get; private set; } = new();
+        
+        [SerializeField] private StringAsset _landSfxName;
         
         private protected override void InitializeSubStates()
         {
@@ -38,7 +41,10 @@ namespace PlayerStates
         private protected override State<PlayerController> GetTransition()
         {
             if (_context.IsGrounded)
+            {
+                AudioManager.Instance.Play(_landSfxName, AudioManager.MixerTarget.SFX, _context.transform.position, Random.Range(0.9f, 1.1f));
                 return _context.GroundedState;
+            }
             
             return null;
         }

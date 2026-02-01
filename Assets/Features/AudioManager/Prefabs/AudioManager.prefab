@@ -184,6 +184,16 @@ MonoBehaviour:
     type: 2}
   _defaultMixer: 0
   _soundBank:
-    _serializedList: []
+    _serializedList:
+    - Key: {fileID: 11400000, guid: 8ebac1f76f4924d43b372be29fcc5273, type: 2}
+      Value: {fileID: 8300000, guid: 3c3e6783acb871e4dad942f634dcae54, type: 3}
+    - Key: {fileID: 11400000, guid: 86b74529a6a02b64796d00ad32e7b78f, type: 2}
+      Value: {fileID: 8300000, guid: a70d317b44891a941806589b25e03900, type: 3}
+    - Key: {fileID: 11400000, guid: 1e8ddc5238d9ab04db826f25db7f67e9, type: 2}
+      Value: {fileID: 8300000, guid: 6e3fd32b29c36894095c23c70cd13698, type: 3}
+    - Key: {fileID: 11400000, guid: d1d57b92224418e448234fcaaf5ec8e4, type: 2}
+      Value: {fileID: 8300000, guid: ca396024e64fc184a9e91710c98bb979, type: 3}
+    - Key: {fileID: 11400000, guid: d56964954bd23d745a1f65a592246c52, type: 2}
+      Value: {fileID: 8300000, guid: 4d2f1936caa4d914383fce8dbf689142, type: 3}
   _musicBank:
     _serializedList: []

@@ -21,7 +21,7 @@ namespace PlayerStates
         private SerializedDictionary<AttackType, Weapon> _attackWeapons = new();
         private AttackConfigSO _currentConfig;
         private Weapon _currentWeapon;
-
+        
         private protected override void OnInit()
         {
             // Create runtime instances of all the clip events since players share the same event and clip data
@@ -140,6 +140,7 @@ namespace PlayerStates
                 return;
             
             CameraShaker.Instance.ShakeCamera(_currentConfig.CameraShakeAmplitude, _currentConfig.CameraShakeFrequency, _currentConfig.CameraShakeDuration);
+            AudioManager.Instance.Play(_currentConfig.SfxName, AudioManager.MixerTarget.SFX, hitPoint, Random.Range(0.8f, 1.2f));
         }
     }
 }

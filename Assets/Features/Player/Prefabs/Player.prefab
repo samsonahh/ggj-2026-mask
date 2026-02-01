@@ -86,6 +86,7 @@ MonoBehaviour:
         _NormalizedStartTime: NaN
       _modelTransform: {fileID: 4688294764710945532}
     _jumpHeight: 2
+    _jumpSfxName: {fileID: 11400000, guid: 8ebac1f76f4924d43b372be29fcc5273, type: 2}
   <AirState>k__BackingField:
     <IdleState>k__BackingField:
       _animationClip:
@@ -99,6 +100,7 @@ MonoBehaviour:
         _NormalizedStartTime: NaN
     <MoveState>k__BackingField:
       _moveSpeed: 2
+    _landSfxName: {fileID: 11400000, guid: 1e8ddc5238d9ab04db826f25db7f67e9, type: 2}
   _groundCheckLength: -0.4
   _groundLayer:
     serializedVersion: 2
@@ -296,9 +298,9 @@ MonoBehaviour:
       - Key: 1
         Value: {fileID: 11400000, guid: 0358e098643a95443acf9dd3400be533, type: 2}
       - Key: 2
-        Value: {fileID: 11400000, guid: 577f40f60ea92d84db3636d3481580b3, type: 2}
+        Value: {fileID: 11400000, guid: 7fe11583066c4e04cb23e1c8087b6dc7, type: 2}
       - Key: 3
-        Value: {fileID: 11400000, guid: 0358e098643a95443acf9dd3400be533, type: 2}
+        Value: {fileID: 11400000, guid: 4b56715c0645f0843b8ff27c56a89c35, type: 2}
     _attackWeapons:
       _serializedList:
       - Key: 0
@@ -502,7 +504,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 10, z: 0}

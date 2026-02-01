@@ -1,6 +1,8 @@
-﻿using Sirenix.OdinInspector;
+﻿using Animancer;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEvent = UnityEngine.Events.UnityEvent;
 
 public class MashMeter : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class MashMeter : MonoBehaviour
 
     [SerializeField] private float _ripperMashStrength = 1.1f;
     [SerializeField] private float _victimMashStrength = 1f;
+    
+    //[SerializeField] private StringAsset _stretchSfxName;
+    private Transform _audioInstance;
 
     public enum Ripper
     {
