@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider healthSlider;
+    public Slider delayedHealthSlider;
     [SerializeField] private Health playerHealth;
+    
+    [Header("Delayed Difference Config")]
+    [SerializeField] private float delay = 0.1f;
+    [SerializeField] private float delayAnimDuration = 0.15f;
+    [SerializeField] private Ease delayEaseType = Ease.OutCirc;
     
     [Header("Shake Config")]
     [SerializeField] private float shakeDuration = 0.2f;
@@ -20,9 +26,9 @@ public class HealthBar : MonoBehaviour
         _startPosition = transform.position;
     }
 
-    void Update()
+    private void Start()
     {
-        healthSlider.value = playerHealth.currentHP/(float)playerHealth.maxHP;
+        OnDamage(0);
     }
 
     private void OnEnable()
@@ -38,8 +44,17 @@ public class HealthBar : MonoBehaviour
     private void OnDamage(int damage)
     {
         transform.DOKill();
+        delayedHealthSlider.DOKill();
         
         transform.position = _startPosition;
         transform.DOShakePosition(shakeDuration, shakeIntensity, shakeFrequency);
+        
+        float targetSliderValue = playerHealth.currentHP/(float)playerHealth.maxHP;
+        healthSlider.value = targetSliderValue;
+        DOVirtual.DelayedCall(delay, () =>
+        {
+            delayedHealthSlider.DOValue(targetSliderValue, delayAnimDuration).SetEase(delayEaseType);
+        })
+        .SetId(delayedHealthSlider);
     }
 }

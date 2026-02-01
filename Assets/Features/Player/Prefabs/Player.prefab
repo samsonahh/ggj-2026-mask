@@ -399,7 +399,19 @@ MonoBehaviour:
   isDead: 0
   onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1625267194728116239}
+        m_TargetAssemblyTypeName: PlayerHealthRegen, Assembly-CSharp
+        m_MethodName: resetTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -478,7 +490,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: cdfcab5b546e31e498fd6cb3a01aeb51, type: 2}
+      _Clip: {fileID: 7400000, guid: 17fb887b31d06124b88797d31eecfd2f, type: 2}
       _NormalizedStartTime: NaN
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5
