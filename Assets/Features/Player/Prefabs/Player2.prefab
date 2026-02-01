@@ -9802,7 +9802,7 @@ GameObject:
   - component: {fileID: 5721030069450483579}
   - component: {fileID: 6893260647568474513}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10144,7 +10144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b522623b3167425eb052d46e1998498b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Team>k__BackingField: 0
+  <Team>k__BackingField: 1
   <OnDamageTaken>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -10601,6 +10601,11 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.0024
       objectReference: {fileID: 0}
+    - target: {fileID: 3125049159787155066, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1f2b0c1e5ac79e4fb47c15e0df8184e, type: 2}
     - target: {fileID: 3182134301703005103, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
         type: 3}
       propertyPath: m_Size.x
@@ -10751,10 +10756,25 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.0036
       objectReference: {fileID: 0}
+    - target: {fileID: 6695706267827949316, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e1f2b0c1e5ac79e4fb47c15e0df8184e, type: 2}
     - target: {fileID: 7076182688455577891, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
         type: 3}
       propertyPath: m_Name
       value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599954136873405337, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599954136873405337, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7599954136873405337, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
         type: 3}
@@ -10821,6 +10841,11 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.0042
       objectReference: {fileID: 0}
+    - target: {fileID: 7943861585289685930, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b4aef408dee08146a706bbb0a9e9835, type: 2}
     - target: {fileID: 8171163969307249648, guid: 6b4f0306f10340b459b5fd0a835d6eb5,
         type: 3}
       propertyPath: m_Size.x

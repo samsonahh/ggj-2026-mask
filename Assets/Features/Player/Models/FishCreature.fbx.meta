@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 0_COlorGrid
-    second: {fileID: 2100000, guid: e1f2b0c1e5ac79e4fb47c15e0df8184e, type: 2}
+    second: {fileID: 2100000, guid: b2f55a0afa35dd24bb3fdf149b7e40c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 0_COlorGrid.001
+    second: {fileID: 2100000, guid: be5816dad3bf80143996b1e42bb3551a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

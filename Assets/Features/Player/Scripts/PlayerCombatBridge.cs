@@ -16,6 +16,8 @@ public class PlayerCombatBridge : MonoBehaviour
 
     public UnityEvent<int, Vector3> OnFinalDamageTaken = new();
 
+    [SerializeField] private GameObject _hitVfx;
+
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
@@ -29,6 +31,8 @@ public class PlayerCombatBridge : MonoBehaviour
         int finalDamage = damage;
         if (_playerController.StateMachine.CurrentState == _playerBlock.BlockState)
             finalDamage /= 2;
+        
+        GameObject.Instantiate(_hitVfx, hitPoint, Quaternion.identity);
         
         _health.TakeDamage(finalDamage);
         OnFinalDamageTaken?.Invoke(finalDamage, hitPoint);

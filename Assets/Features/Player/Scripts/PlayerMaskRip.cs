@@ -26,6 +26,11 @@ public class PlayerMaskRip : MonoBehaviour
 
     [SerializeField] private float _startMaskRipDelay = 0.5f;
     [SerializeField] private StringAsset _deathSfxName;
+    [SerializeField] private ClipTransition _deathAnimClip;
+    [SerializeField] private Transform _modelTransform;
+    [SerializeField] private float _modelDeathShakeIntensity = 10f;
+    [SerializeField] private int _modelDeathShakeFrequency = 20;
+    private Vector3 _modelStartLocalPos;
     
     [field: SerializeField] public MaskRippingState MaskRippingState { get; private set; }  
     [field: SerializeField] public MaskRipVictimState MaskRipVictimState { get; private set; }
@@ -43,6 +48,8 @@ public class PlayerMaskRip : MonoBehaviour
         _playerAttack = GetComponent<PlayerAttack>();
         _playerBlock = GetComponent<PlayerBlock>();
         _damageable = GetComponent<Damageable>();
+        
+        _modelStartLocalPos = _modelTransform.localPosition;
     }
 
     private void Start()
@@ -65,12 +72,21 @@ public class PlayerMaskRip : MonoBehaviour
     {
         DisablePlayer();
         DOVirtual.DelayedCall(_startMaskRipDelay, StartMaskRip);
+
+        _playerController.StateMachine.ChangeState(_playerController.GroundedState, true); // kick player out of staggered state
+        _modelTransform.DOKill();
+        _modelTransform.localPosition = _modelStartLocalPos;
+        _modelTransform.DOShakePosition(_startMaskRipDelay, _modelDeathShakeIntensity, _modelDeathShakeFrequency);
+        
+        _playerController.Animator.Play(_deathAnimClip, 0.1f);
         
         AudioManager.Instance.Play(_deathSfxName, AudioManager.MixerTarget.SFX, null, Random.Range(0.25f, 1.75f));
     }
 
     private void StartMaskRip()
     {
+        _modelTransform.localPosition = _modelStartLocalPos;
+        
         StartVictim();
         _otherPlayerMaskRip.StartRipper();
 
