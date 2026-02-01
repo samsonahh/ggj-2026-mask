@@ -1,8 +1,10 @@
 ﻿using System;
+using Animancer;
 using DG.Tweening;
 using PlayerStates;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(PlayerController))]
@@ -23,6 +25,7 @@ public class PlayerMaskRip : MonoBehaviour
     [SerializeField, Required] private MashMeter _mashMeter;
 
     [SerializeField] private float _startMaskRipDelay = 0.5f;
+    [SerializeField] private StringAsset _deathSfxName;
     
     [field: SerializeField] public MaskRippingState MaskRippingState { get; private set; }  
     [field: SerializeField] public MaskRipVictimState MaskRipVictimState { get; private set; }
@@ -62,6 +65,8 @@ public class PlayerMaskRip : MonoBehaviour
     {
         DisablePlayer();
         DOVirtual.DelayedCall(_startMaskRipDelay, StartMaskRip);
+        
+        AudioManager.Instance.Play(_deathSfxName, AudioManager.MixerTarget.SFX, null, Random.Range(0.25f, 1.75f));
     }
 
     private void StartMaskRip()

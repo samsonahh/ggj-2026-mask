@@ -471,7 +471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _otherPlayerMaskRip: {fileID: 0}
   _mashMeter: {fileID: 0}
-  _startMaskRipDelay: 0.5
+  _startMaskRipDelay: 1.5
+  _deathSfxName: {fileID: 11400000, guid: eb06050deae938c46845748e31057e04, type: 2}
   <MaskRippingState>k__BackingField:
     _animationClip:
       _FadeDuration: 0.25

@@ -9,3 +9,7 @@ Little Fighter Jump by tailssonic -- https://freesound.org/s/686986/ -- License:
 Rubber Stretch Rip 1.wav by mickdow -- https://freesound.org/s/253327/ -- License: Creative Commons 0
 
 quick woosh by florianreichelt -- https://freesound.org/s/683101/ -- License: Creative Commons 0
+
+buzzer sportif.wav by Naïma -- https://freesound.org/s/510026/ -- License: Creative Commons 0
+
+death_blood_splatter.mp3 by minian89 -- https://freesound.org/s/195954/ -- License: Creative Commons 0
