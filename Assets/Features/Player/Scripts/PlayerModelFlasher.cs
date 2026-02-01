@@ -13,11 +13,17 @@ public class PlayerModelFlasher : MonoBehaviour
     
     private Dictionary<Renderer, Material[]> _renderers = new Dictionary<Renderer, Material[]>();
     
+    public event Action OnMaterialsReset = delegate { };
+    
     private void Awake()
     {
         var renderers = GetComponentsInChildren<Renderer>().ToList();
         foreach (var r in renderers)
+        {
+            if (r.gameObject.name == "Trail")
+                continue;
             _renderers.Add(r, r.sharedMaterials);
+        }
     }
 
     private void OnEnable()
@@ -60,5 +66,6 @@ public class PlayerModelFlasher : MonoBehaviour
         {
             r.Key.sharedMaterials = r.Value;
         }
+        OnMaterialsReset.Invoke();
     }
 }
