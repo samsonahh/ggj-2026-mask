@@ -185,6 +185,8 @@ MonoBehaviour:
   _defaultMixer: 0
   _soundBank:
     _serializedList:
+    - Key: {fileID: 11400000, guid: 729acca7082c8e34baa4c0e50cb61cc6, type: 2}
+      Value: {fileID: 8300000, guid: 164b51bd7a839f34494bf1503e54c2c8, type: 3}
     - Key: {fileID: 11400000, guid: ce590635fc198ea4886b4e411d230eb2, type: 2}
       Value: {fileID: 8300000, guid: 0de3d447dd368494ab0a98b796f72801, type: 3}
     - Key: {fileID: 11400000, guid: e74fb46edf40a66448d186be2bb07d27, type: 2}

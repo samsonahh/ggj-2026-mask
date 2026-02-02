@@ -1,15 +1,17 @@
 ﻿using System;
+using Animancer;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEvent = UnityEngine.Events.UnityEvent;
 
 public class ReadyUI : MonoBehaviour
 {
     [SerializeField] private LocalCoopInputManager _localCoopInputManager;
     [SerializeField] private Color _readyImageColor = Color.green;
     [SerializeField] private float _readyFinishedDelayed = 1f;
+    [SerializeField] private StringAsset _readySfxName;
     public UnityEvent OnReadyFinished = new UnityEvent();
     
     [Header("Left Ready")]
@@ -60,6 +62,8 @@ public class ReadyUI : MonoBehaviour
 
     private void PulseImage(Image image)
     {
+        AudioManager.Instance.Play(_readySfxName, AudioManager.MixerTarget.UI);
+        
         image.transform.DOKill();
         image.transform.localScale = Vector3.one;
         

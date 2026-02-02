@@ -27,3 +27,5 @@ Scream 2.mp3 by HiddenBandKid -- https://freesound.org/s/572496/ -- License: Att
 CLICK_181.wav by Jaszunio15 -- https://freesound.org/s/421312/ -- License: Creative Commons 0
 
 Click 1.mp3 by SomeoneCool15 -- https://freesound.org/s/423771/ -- License: Creative Commons 0
+
+Round 1\2\3 Fight! Announcer Deep Voice by exe2be -- https://freesound.org/s/553600/ -- License: Attribution 4.0
