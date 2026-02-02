@@ -4,6 +4,7 @@ using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class MaskManager : MonoBehaviour
 {
@@ -21,13 +22,17 @@ public class MaskManager : MonoBehaviour
     [SerializeField, Required] private PlayerModelFlasher _playerOneModelFlasher;
     [SerializeField, Required] private PlayerModelFlasher _playerTwoModelFlasher;
 
+    [SerializeField, ReadOnly] private List<MaterialSpritePair> _remainingPairs = new List<MaterialSpritePair>();
     private MaterialSpritePair _firstMaskMaterialSpritePair;
     private MaterialSpritePair _secondMaskMaterialSpritePair;
     
     private void Start()
     {
-        _firstMaskMaterialSpritePair = _maskTextureSpritePairs.RandomElement();
-        _secondMaskMaterialSpritePair = _maskTextureSpritePairs.RandomElement();
+        _remainingPairs = new List<MaterialSpritePair>(_maskTextureSpritePairs);
+        _firstMaskMaterialSpritePair = _remainingPairs.RandomElement();
+        _remainingPairs.Remove(_firstMaskMaterialSpritePair);
+        _secondMaskMaterialSpritePair = _remainingPairs.RandomElement();
+        
         ApplyMasks();
         
         _playerOneModelFlasher.OnMaterialsReset += ApplyMasks;
