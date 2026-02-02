@@ -13,6 +13,7 @@ public class LocalCoopInputManager : MonoBehaviour
     private bool _isAcceptingJoinInputs;
     private bool _isKeyboardMainOccupied;
     private bool _isKeyboardAltOccupied;
+    private HashSet<InputDevice> _occupiedGamepads = new HashSet<InputDevice>();
     
     [Header("References")]
     [SerializeField, Required] private PlayerInput _playerInputPrefab;
@@ -78,6 +79,8 @@ public class LocalCoopInputManager : MonoBehaviour
             _isKeyboardMainOccupied = true;
         else if(controlScheme == ControlScheme.KeyboardAlt)
             _isKeyboardAltOccupied = true;
+        else if (controlScheme == ControlScheme.Gamepad)
+            _occupiedGamepads.Add(context.control.device);
 
         if (PlayerInput.all.Count >= _maxPlayerCount)
             _isAcceptingJoinInputs = false; // disable future joins
@@ -110,6 +113,9 @@ public class LocalCoopInputManager : MonoBehaviour
         if (!_isAcceptingJoinInputs)
             return;
 
+        if (_occupiedGamepads.Contains(context.control.device))
+            return;
+        
         BootstrapPlayerInput(context, ControlScheme.Gamepad);
     }
 }
