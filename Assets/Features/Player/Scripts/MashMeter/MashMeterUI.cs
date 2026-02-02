@@ -28,7 +28,7 @@ public class MashMeterUI : MonoBehaviour
 
     private void OnMashStarted()
     {
-        _slider.transform.localScale = new Vector3(_meter.IsFlipped ? -1 : 1, 1, 1);
+        _slider.direction = _meter.IsFlipped ? Slider.Direction.RightToLeft : Slider.Direction.LeftToRight;
     }
 
     private void OnMash()
@@ -42,6 +42,9 @@ public class MashMeterUI : MonoBehaviour
 
     private void LateUpdate()
     {
-        _slider.value = _meter.MashMeterValue / _meter.MaxMashMeterValue;
+        if (!_meter.IsFlipped)
+            _slider.value = _meter.MashMeterValue / _meter.MaxMashMeterValue;
+        else
+            _slider.value = 1f - (_meter.MashMeterValue / _meter.MaxMashMeterValue);
     }
 }
