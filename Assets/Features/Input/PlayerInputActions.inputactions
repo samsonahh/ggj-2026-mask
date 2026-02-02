@@ -87,6 +87,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "LeftRightArrowKeys",
+                    "id": "418a5e18-83cc-43fb-8aee-fee6e272be0d",
+                    "path": "Dpad(mode=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "9a4aa91b-5464-4d27-8672-6e130c1d69f7",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&MouseAlt",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f41b1fdf-3eb0-4357-ae48-60a620ae92da",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&MouseAlt",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "LeftRight",
                     "id": "f0e43fcf-2cae-4a19-ab81-e6f24cc23455",
                     "path": "Dpad(mode=1)",
@@ -143,6 +176,17 @@
                 },
                 {
                     "name": "",
+                    "id": "d2c6461d-348d-460e-99b9-04961909a091",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&MouseAlt",
+                    "action": "Hit1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "39c246f1-93c2-4371-9c76-bd92fd4640ab",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -159,6 +203,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Hit2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "056a8b42-2cf9-40df-be25-ebebd383e6ba",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&MouseAlt",
                     "action": "Hit2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -187,6 +242,17 @@
                 },
                 {
                     "name": "",
+                    "id": "84a0f297-2bd9-4ec6-8c8f-115e42d8e0c4",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&MouseAlt",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cb1dde8c-0aba-446e-b7d5-78c04bcd55bd",
                     "path": "<Gamepad>/dpad/up",
                     "interactions": "",
@@ -203,6 +269,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "770b26ca-8fad-4a56-88f5-2423e1785957",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&MouseAlt",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -749,6 +826,17 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard&MouseAlt",
+            "bindingGroup": "Keyboard&MouseAlt",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }

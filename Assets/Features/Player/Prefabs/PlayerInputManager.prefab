@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879028537508034803}
-  - component: {fileID: 2158128105839781170}
+  - component: {fileID: 2156849069052209876}
   m_Layer: 0
   m_Name: PlayerInputManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2158128105839781170
+--- !u!114 &2156849069052209876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,38 +41,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8689986043477732244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 99c3e3d811e34000a9529440aeece794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
-  m_MaxPlayerCount: 2
-  m_AllowJoining: 1
-  m_JoinBehavior: 2
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 8b26a458-abdf-466c-8a65-2646f967db23
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 0}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  _joinKeyboardMainAction: {fileID: 3561621009252415844, guid: 5e43c3e5ac8f90f41bb158df504bc887,
+    type: 3}
+  _joinKeyboardAltAction: {fileID: 2877487448110430950, guid: 5e43c3e5ac8f90f41bb158df504bc887,
+    type: 3}
+  _joinGamepadAction: {fileID: -939006319186365576, guid: 5e43c3e5ac8f90f41bb158df504bc887,
+    type: 3}
+  _playerInputPrefab: {fileID: 1042462307700459547, guid: 0de424a8dd8eb404e98b4452f13d92f2,
+    type: 3}
+  _playerInputReaders:
+  - {fileID: 0}
+  - {fileID: 0}
+  _maxPlayerCount: 2

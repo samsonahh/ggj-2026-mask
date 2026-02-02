@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputReader : MonoBehaviour
 {
-    [field: SerializeField, Required] public PlayerInput PlayerInput { get; private set; }
+    public PlayerInput PlayerInput { get; private set; }
 
     [field: SerializeField, ReadOnly] public int MoveInput { get; private set; }
     
@@ -14,16 +14,39 @@ public class PlayerInputReader : MonoBehaviour
     public event Action OnHit2 = delegate { };
     public event Action OnBlockStarted = delegate { };
     public event Action OnBlockReleased = delegate { };
-    
-    public void InvokeMove(InputAction.CallbackContext context)
+
+    public void SetPlayerInput(PlayerInput playerInput)
+    {
+        PlayerInput = playerInput;
+        
+        playerInput.actions["Jump"].performed += InvokeJump;
+        playerInput.actions["Hit1"].performed += InvokeHit1;
+        playerInput.actions["Hit2"].performed += InvokeHit2;
+        playerInput.actions["Block"].started += InvokeBlock;
+        playerInput.actions["Block"].canceled += InvokeBlock;
+    }
+
+    private void OnDestroy()
+    {
+        if (PlayerInput != null)
+        {
+            PlayerInput.actions["Jump"].performed -= InvokeJump;
+            PlayerInput.actions["Hit1"].performed -= InvokeHit1;
+            PlayerInput.actions["Hit2"].performed -= InvokeHit2;
+            PlayerInput.actions["Block"].started -= InvokeBlock;
+            PlayerInput.actions["Block"].canceled -= InvokeBlock;
+        }
+    }
+
+    private void Update()
     {
         if (!enabled)
         {
             MoveInput = 0;
             return;
         }
-        
-        Vector2 input = context.ReadValue<Vector2>();
+
+        Vector2 input = PlayerInput.actions["Move"].ReadValue<Vector2>();
         MoveInput = (int)input.x;
     }
     
