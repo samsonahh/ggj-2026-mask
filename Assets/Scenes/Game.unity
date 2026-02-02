@@ -3304,11 +3304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChumPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 2454564629052152598, guid: d550a5e983656bc4aa78d5cec8d5c49f,
-        type: 3}
-      propertyPath: maxHP
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 5043465722184730758, guid: d550a5e983656bc4aa78d5cec8d5c49f,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5013,16 +5008,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChudPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 2454564629052152598, guid: 0e764f64ddf4ae8419bf537742323dd9,
-        type: 3}
-      propertyPath: maxHP
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 2615007066428172145, guid: 0e764f64ddf4ae8419bf537742323dd9,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 304a7506ad63c2242b5d506edda8cbaa, type: 2}
     - target: {fileID: 5043465722184730758, guid: 0e764f64ddf4ae8419bf537742323dd9,
         type: 3}
       propertyPath: m_LocalPosition.x

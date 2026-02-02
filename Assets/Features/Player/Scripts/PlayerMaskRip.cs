@@ -43,6 +43,7 @@ public class PlayerMaskRip : MonoBehaviour
     
     [Header("Rip Mask Pos")]
     [SerializeField] private float _playerDistanceX = 2.05f;
+    [SerializeField] private Ease _playerPositionRecenterEaseType = Ease.OutCubic;
     [SerializeField] private Transform _maskTransform;
     [SerializeField] private Transform _victimMaskTargetTransform;
     private Vector3 _victimMaskOriginalLocalPosition;
@@ -92,7 +93,9 @@ public class PlayerMaskRip : MonoBehaviour
     private void OnDeath()
     {
         DisablePlayer();
+        InputReader.enabled = false;
         _otherPlayerMaskRip.DisablePlayer();
+        _otherPlayerMaskRip.InputReader.enabled = false;
         DOVirtual.DelayedCall(_startMaskRipDelay, StartMaskRip);
 
         _playerController.StateMachine.ChangeState(_playerController.GroundedState, true); // kick player out of staggered state
@@ -101,10 +104,16 @@ public class PlayerMaskRip : MonoBehaviour
         _modelTransform.DOShakePosition(_startMaskRipDelay, _modelDeathShakeIntensity, _modelDeathShakeFrequency);
         
         // offset to match anim
-        Vector3 centerPos = (transform.position + _otherPlayerMaskRip.transform.position) / 2f;
-        Vector3 dirToCenter = (centerPos - transform.position).normalized;
-        transform.position = centerPos - dirToCenter * _playerDistanceX * 0.5f;
-        _otherPlayerMaskRip.transform.position =  centerPos + dirToCenter * _playerDistanceX * 0.5f;
+        Vector3 centerPos = (transform.position + _otherPlayerMaskRip.transform.position).WithY(0) / 2f;
+        Vector3 dirFromCenter = (transform.position.WithY(0) - centerPos).WithZ(0).normalized;
+        Vector3 targetVictimPosition = centerPos + dirFromCenter * _playerDistanceX * 0.5f;
+        Vector3 targetRipperPosition = centerPos - dirFromCenter * _playerDistanceX * 0.5f;
+        transform.DOKill();
+        _otherPlayerMaskRip.transform.DOKill();
+        transform.DOMoveX(targetVictimPosition.x, _startMaskRipDelay)
+            .SetEase(_playerPositionRecenterEaseType);
+        _otherPlayerMaskRip.transform.DOMoveX(targetRipperPosition.x, _startMaskRipDelay)
+            .SetEase(_playerPositionRecenterEaseType);
         
         _playerController.Animator.Play(_deathAnimClip, 0.1f);
         
@@ -113,6 +122,9 @@ public class PlayerMaskRip : MonoBehaviour
 
     private void StartMaskRip()
     {
+        InputReader.enabled = true;
+        _otherPlayerMaskRip.InputReader.enabled = true;
+        
         _modelTransform.localPosition = _modelStartLocalPos;
         
         StartVictim();
@@ -139,6 +151,7 @@ public class PlayerMaskRip : MonoBehaviour
     private void OnMaskRippingFailed()
     {
         Revive();
+        _otherPlayerMaskRip.Revive();
         
         EndRipping();
         _otherPlayerMaskRip.EndRipping();
@@ -195,7 +208,6 @@ public class PlayerMaskRip : MonoBehaviour
 
     public void Revive()
     {
-        Debug.Log(gameObject.name + " Revived");
         _health.revive();
     }
 

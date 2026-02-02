@@ -17,30 +17,48 @@ public class PlayerInputReader : MonoBehaviour
     
     public void InvokeMove(InputAction.CallbackContext context)
     {
+        if (!enabled)
+        {
+            MoveInput = 0;
+            return;
+        }
+        
         Vector2 input = context.ReadValue<Vector2>();
         MoveInput = (int)input.x;
     }
     
     public void InvokeJump(InputAction.CallbackContext context)
     {
+        if (!enabled)
+            return;
+        
         if (context.performed)
             OnJump.Invoke();    
     }
     
     public void InvokeHit1(InputAction.CallbackContext context)
     {
+        if (!enabled)
+            return;
+        
         if(context.performed)
             OnHit1.Invoke();
     }
     
     public void InvokeHit2(InputAction.CallbackContext context)
     {
+        if (!enabled)
+            return;
+        
         if(context.performed)
             OnHit2.Invoke();
     }
     
     public void InvokeBlock(InputAction.CallbackContext context)
     {
+        if (!enabled)
+            return;
+        
         if(context.started)
             OnBlockStarted.Invoke();
         else if(context.canceled)

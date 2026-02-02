@@ -27,11 +27,11 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Color healthBarHealColor = Color.green;
     private Color healthBarDefaultColor;
     
-    private Vector3 _startPosition;
+    private Vector3 _startLocalPosition;
 
     private void Awake()
     {
-        _startPosition = transform.position;
+        _startLocalPosition = transform.localPosition;
         healthBarDefaultColor = healthSliderFill.color;
     }
 
@@ -61,7 +61,7 @@ public class HealthBar : MonoBehaviour
         
         healthSliderFill.color = healthBarDefaultColor;
         delayedHealthSliderFill.color = healTargetColor;
-        transform.position = _startPosition;
+        transform.localPosition = _startLocalPosition;
 
         float targetSliderValue = playerHealth.currentHP/(float)playerHealth.maxHP;
         delayedHealthSlider.value = targetSliderValue;
@@ -88,7 +88,7 @@ public class HealthBar : MonoBehaviour
         
         healthSliderFill.color = healthBarDefaultColor;
         delayedHealthSliderFill.color = damageTargetColor;
-        transform.position = _startPosition;
+        transform.localPosition = _startLocalPosition;
         transform.DOShakePosition(shakeDuration, shakeIntensity, shakeFrequency);
         
         float targetSliderValue = playerHealth.currentHP/(float)playerHealth.maxHP;

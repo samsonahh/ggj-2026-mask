@@ -10176,7 +10176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109b3fa76795aac49b34bd6a97ff7279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
+  maxHP: 55
   currentHP: 0
   isDead: 0
   onDamage:
@@ -10336,11 +10336,16 @@ MonoBehaviour:
       _Clip: {fileID: 7400000, guid: 50fe7e5ef02a8224f9886ec22240cd03, type: 2}
       _NormalizedStartTime: NaN
   _playerDistanceX: 2.05
+  _playerPositionRecenterEaseType: 9
   _maskTransform: {fileID: 3747403696829996062}
   _victimMaskTargetTransform: {fileID: 6775819636721106658}
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5
   _mashCameraShakeFrequency: 5
+  _winDelay: 1
+  OnDelayedWin:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds: []
@@ -11132,6 +11137,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5b7d90c231862fd4889499bd7ef63fab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 304a7506ad63c2242b5d506edda8cbaa, type: 2}
     - target: {fileID: 919132149155446097, guid: 5b7d90c231862fd4889499bd7ef63fab,
         type: 3}
       propertyPath: m_Name

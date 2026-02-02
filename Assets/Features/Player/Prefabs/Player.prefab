@@ -10176,7 +10176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109b3fa76795aac49b34bd6a97ff7279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
+  maxHP: 55
   currentHP: 0
   isDead: 0
   onDamage:
@@ -10336,11 +10336,16 @@ MonoBehaviour:
       _Clip: {fileID: 7400000, guid: 50fe7e5ef02a8224f9886ec22240cd03, type: 2}
       _NormalizedStartTime: NaN
   _playerDistanceX: 2.05
+  _playerPositionRecenterEaseType: 9
   _maskTransform: {fileID: 4213022795738838587}
   _victimMaskTargetTransform: {fileID: 6518013145451400896}
   _mashCameraShakeDuration: 0.25
   _mashCameraShakeAmplitude: 5
   _mashCameraShakeFrequency: 5
+  _winDelay: 1
+  OnDelayedWin:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds: []

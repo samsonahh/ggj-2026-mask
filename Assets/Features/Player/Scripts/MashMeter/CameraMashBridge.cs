@@ -11,6 +11,7 @@ public class CameraMashBridge : MonoBehaviour
     [SerializeField, Required] private Transform _chudFace;
     [SerializeField,  Required] private Transform _chumFace;
     [SerializeField,  Required] private MashMeter _mashMeter;
+    private float _faceGroundedYOffset;
 
     [SerializeField] private float _targetOrthoSize = 1f;
     [SerializeField] private float _transitionDuration = 0.3f;
@@ -23,6 +24,9 @@ public class CameraMashBridge : MonoBehaviour
     private void Awake()
     {
         _camera = GetComponent<CinemachineVirtualCamera>();
+
+        Transform chudTransform = _chudFace.GetComponentInParent<PlayerController>().transform;
+        _faceGroundedYOffset = (_chudFace.transform.position - chudTransform.position).y;
         
         _originalOrthoSize = _camera.m_Lens.OrthographicSize;
         _startingPosition = transform.position;
@@ -52,7 +56,7 @@ public class CameraMashBridge : MonoBehaviour
         }).SetEase(_transitionEaseType)
         .SetId(_camera);;
         
-        Vector3 betweenPlayersPos = (_chudFace.position + _chumFace.transform.position) / 2f;
+        Vector3 betweenPlayersPos = (_chudFace.transform.position + _chumFace.transform.position).WithY(_faceGroundedYOffset) / 2f;
         Vector3 outwardDirection = _startingPosition - betweenPlayersPos;
         transform.DOMove(betweenPlayersPos + outwardDirection.WithX(0f).WithY(0f), _transitionDuration).SetEase(_transitionEaseType);
         transform.DORotate(Vector3.zero, _transitionDuration).SetEase(_transitionEaseType);
