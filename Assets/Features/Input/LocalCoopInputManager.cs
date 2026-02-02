@@ -22,6 +22,8 @@ public class LocalCoopInputManager : MonoBehaviour
     [Header("Config")]
     [SerializeField] private int _maxPlayerCount = 2;
     
+    public event Action OnPlayerInputJoined = delegate { };
+    
     public enum ControlScheme
     {
         KeyboardMain,
@@ -73,7 +75,6 @@ public class LocalCoopInputManager : MonoBehaviour
 
         PlayerInputReader targetReader = _playerInputReaders[joinedInput.playerIndex];
         targetReader.SetPlayerInput(joinedInput);
-        targetReader.enabled = true;
 
         if (controlScheme == ControlScheme.KeyboardMain)
             _isKeyboardMainOccupied = true;
@@ -84,6 +85,8 @@ public class LocalCoopInputManager : MonoBehaviour
 
         if (PlayerInput.all.Count >= _maxPlayerCount)
             _isAcceptingJoinInputs = false; // disable future joins
+        
+        OnPlayerInputJoined.Invoke();
     }
     
     private void JoinMainKeyboardInput(InputAction.CallbackContext context)

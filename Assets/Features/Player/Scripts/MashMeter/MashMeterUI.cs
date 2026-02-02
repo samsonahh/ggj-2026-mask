@@ -28,7 +28,7 @@ public class MashMeterUI : MonoBehaviour
 
     private void OnMashStarted()
     {
-        _slider.direction = _meter.IsFlipped ? Slider.Direction.RightToLeft : Slider.Direction.LeftToRight;
+        // _slider.direction = _meter.IsFlipped ? Slider.Direction.RightToLeft : Slider.Direction.LeftToRight;
     }
 
     private void OnMash()

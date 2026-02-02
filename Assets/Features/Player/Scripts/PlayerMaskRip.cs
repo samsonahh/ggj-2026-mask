@@ -134,7 +134,7 @@ public class PlayerMaskRip : MonoBehaviour
         _otherPlayerMaskRip.InputReader.OnHit1 += Ripper_OnMash;
 
         _mashMeter.ResetMashMeter();
-        _mashMeter.SetFlipped(_modelTransform.localScale.x > 0);
+        _mashMeter.SetFlipped(_modelTransform.localScale.z > 0);
         _mashMeter.StartMash();
         _mashMeter.OnWin.AddListener(OnMashFinished);
     }
