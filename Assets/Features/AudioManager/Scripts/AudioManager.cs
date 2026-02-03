@@ -45,6 +45,30 @@ public class AudioManager : Singleton<AudioManager>
         UI = MixerTarget.UI
     }
     
+    private void Start()
+    {
+        PreloadAllAudio();
+    }
+
+    private void PreloadAllAudio()
+    {
+        // Preload all sound effects
+        foreach (var kvp in _soundBank)
+        {
+            if (kvp.Value != null)
+                kvp.Value.LoadAudioData();
+        }
+    
+        // Preload all music
+        foreach (var kvp in _musicBank)
+        {
+            if (kvp.Value != null)
+                kvp.Value.LoadAudioData();
+        }
+    
+        Debug.Log("All audio clips preloaded");
+    }
+    
     public void Play(StringAsset clip, MixerTarget mixerTarget, Vector3? position = null, float pitch = 1f, bool persistAcrossScenes = false)
     {
         // Prevent same sound from playing twice in the same frame

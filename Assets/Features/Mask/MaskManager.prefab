@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6680444277095973528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880979597220687100}
+  - component: {fileID: 2592211669712992290}
+  m_Layer: 0
+  m_Name: MaskManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1880979597220687100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680444277095973528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2592211669712992290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680444277095973528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b349a8b582cf4b329b23db9aa5f63ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maskTextureSpritePairs:
+  - Material: {fileID: 2100000, guid: 49c5eefaf3f1c184faba0305181fce5a, type: 2}
+    Sprite: {fileID: 21300000, guid: 3c1cd34d03af46945ba737313aa7aad6, type: 3}
+  - Material: {fileID: 2100000, guid: d28c59e3f0278394597ed7481fbbf6eb, type: 2}
+    Sprite: {fileID: 21300000, guid: b1a9bc0909647d645be8fc42cd7eafc1, type: 3}
+  - Material: {fileID: 2100000, guid: 20e0da6b6e7c43e4a85ba524db2ec120, type: 2}
+    Sprite: {fileID: 21300000, guid: 31a07f439f782ec42ab22fcc926b41a5, type: 3}
+  - Material: {fileID: 2100000, guid: 7ba238d8d6ef697459d2e87fc367cf4c, type: 2}
+    Sprite: {fileID: 21300000, guid: 83a4bfa1e770d704790d22c07c6cb169, type: 3}
+  _playerOneMaskImage: {fileID: 0}
+  _playerTwoMaskImage: {fileID: 0}
+  _playerOneMaskRenderer: {fileID: 0}
+  _playerTwoMaskRenderer: {fileID: 0}
+  _playerOneModelFlasher: {fileID: 0}
+  _playerTwoModelFlasher: {fileID: 0}
+  _remainingPairs: []

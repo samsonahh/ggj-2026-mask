@@ -14,6 +14,12 @@ public class ReadyUI : MonoBehaviour
     [SerializeField] private StringAsset _readySfxName;
     public UnityEvent OnReadyFinished = new UnityEvent();
     
+    [Header("Title")]
+    [SerializeField] private Transform _titleTransform;
+    [SerializeField] private float _titlePulseInterval = 0.75f;
+    [SerializeField] private float _titlePulseTargetSize = 1.1f;
+    [SerializeField] private Ease _titlePulseEaseType = Ease.OutCirc;
+    
     [Header("Left Ready")]
     [SerializeField] private Image _leftReadyImage;
     [SerializeField] private TMP_Text _leftReadyText;
@@ -32,6 +38,13 @@ public class ReadyUI : MonoBehaviour
     private void Awake()
     {
         _localCoopInputManager.OnPlayerInputJoined += OnPlayerInputJoined;
+    }
+
+    private void Start()
+    {
+        _titleTransform.DOScale(_titlePulseTargetSize, _titlePulseInterval)
+            .SetEase(_titlePulseEaseType)
+            .SetLoops(-1, LoopType.Yoyo);
     }
 
     private void OnDestroy()
