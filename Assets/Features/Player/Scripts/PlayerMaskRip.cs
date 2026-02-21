@@ -23,7 +23,7 @@ public class PlayerMaskRip : MonoBehaviour
     private Damageable _damageable;
     private PlayerHealthRegen _healthRegen;
     
-    [SerializeField, Required] private PlayerMaskRip _otherPlayerMaskRip;
+    [field: SerializeField, Required] public PlayerMaskRip OtherPlayerMaskRip;
     [SerializeField, Required] private MashMeter _mashMeter;
 
     [SerializeField] private float _startMaskRipDelay = 0.5f;
@@ -79,23 +79,13 @@ public class PlayerMaskRip : MonoBehaviour
         WinState.Init(_playerController.StateMachine, _playerController);
         LoseState.Init(_playerController.StateMachine, _playerController);
     }
-
-    private void OnEnable()
-    {
-        _health.onDeath.AddListener(OnDeath);
-    }
-
-    private void OnDisable()
-    {
-        _health.onDeath.RemoveListener(OnDeath);
-    }
-
-    private void OnDeath()
+    
+    public void OnDeath()
     {
         DisablePlayer();
         InputReader.enabled = false;
-        _otherPlayerMaskRip.DisablePlayer();
-        _otherPlayerMaskRip.InputReader.enabled = false;
+        OtherPlayerMaskRip.DisablePlayer();
+        OtherPlayerMaskRip.InputReader.enabled = false;
         DOVirtual.DelayedCall(_startMaskRipDelay, StartMaskRip);
 
         _playerController.StateMachine.ChangeState(_playerController.GroundedState, true); // kick player out of staggered state
@@ -104,15 +94,15 @@ public class PlayerMaskRip : MonoBehaviour
         _modelTransform.DOShakePosition(_startMaskRipDelay, _modelDeathShakeIntensity, _modelDeathShakeFrequency);
         
         // offset to match anim
-        Vector3 centerPos = (transform.position + _otherPlayerMaskRip.transform.position).WithY(0) / 2f;
+        Vector3 centerPos = (transform.position + OtherPlayerMaskRip.transform.position).WithY(0) / 2f;
         Vector3 dirFromCenter = (transform.position.WithY(0) - centerPos).WithZ(0).normalized;
         Vector3 targetVictimPosition = centerPos + dirFromCenter * _playerDistanceX * 0.5f;
         Vector3 targetRipperPosition = centerPos - dirFromCenter * _playerDistanceX * 0.5f;
         transform.DOKill();
-        _otherPlayerMaskRip.transform.DOKill();
+        OtherPlayerMaskRip.transform.DOKill();
         transform.DOMoveX(targetVictimPosition.x, _startMaskRipDelay)
             .SetEase(_playerPositionRecenterEaseType);
-        _otherPlayerMaskRip.transform.DOMoveX(targetRipperPosition.x, _startMaskRipDelay)
+        OtherPlayerMaskRip.transform.DOMoveX(targetRipperPosition.x, _startMaskRipDelay)
             .SetEase(_playerPositionRecenterEaseType);
         
         _playerController.Animator.Play(_deathAnimClip, 0.1f);
@@ -123,15 +113,15 @@ public class PlayerMaskRip : MonoBehaviour
     private void StartMaskRip()
     {
         InputReader.enabled = true;
-        _otherPlayerMaskRip.InputReader.enabled = true;
+        OtherPlayerMaskRip.InputReader.enabled = true;
         
         _modelTransform.localPosition = _modelStartLocalPos;
         
         StartVictim();
-        _otherPlayerMaskRip.StartRipper();
+        OtherPlayerMaskRip.StartRipper();
 
         InputReader.OnHit1 += Victim_OnMash;
-        _otherPlayerMaskRip.InputReader.OnHit1 += Ripper_OnMash;
+        OtherPlayerMaskRip.InputReader.OnHit1 += Ripper_OnMash;
 
         _mashMeter.ResetMashMeter();
         _mashMeter.SetFlipped(_modelTransform.localScale.z > 0);
@@ -142,22 +132,22 @@ public class PlayerMaskRip : MonoBehaviour
     private void OnMaskRippingSuccess()
     {
         Lose();
-        _otherPlayerMaskRip.Win();
+        OtherPlayerMaskRip.Win();
         
         InputReader.OnHit1 -= Victim_OnMash;
-        _otherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
+        OtherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
     }
 
     private void OnMaskRippingFailed()
     {
         Revive();
-        _otherPlayerMaskRip.Revive();
+        OtherPlayerMaskRip.Revive();
         
         EndRipping();
-        _otherPlayerMaskRip.EndRipping();
+        OtherPlayerMaskRip.EndRipping();
         
         InputReader.OnHit1 -= Victim_OnMash;
-        _otherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
+        OtherPlayerMaskRip.InputReader.OnHit1 -= Ripper_OnMash;
     }
 
     private void Ripper_OnMash()

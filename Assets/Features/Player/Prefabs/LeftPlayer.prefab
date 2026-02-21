@@ -9801,6 +9801,7 @@ GameObject:
   - component: {fileID: 5721030069450483579}
   - component: {fileID: 6893260647568474513}
   - component: {fileID: 8359678966512874205}
+  - component: {fileID: 8552101960507454170}
   m_Layer: 0
   m_Name: LeftPlayer
   m_TagString: Untagged
@@ -10070,7 +10071,19 @@ MonoBehaviour:
         m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8552101960507454170}
+        m_TargetAssemblyTypeName: PlayerHealthManager, Assembly-CSharp
+        m_MethodName: Knockdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1625267194728116239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10126,7 +10139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409a0edf6a5e4ee38a2e85db4afe9e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _otherPlayerMaskRip: {fileID: 0}
+  OtherPlayerMaskRip: {fileID: 0}
   _mashMeter: {fileID: 0}
   _startMaskRipDelay: 1.5
   _deathSfxName: {fileID: 11400000, guid: eb06050deae938c46845748e31057e04, type: 2}
@@ -10293,6 +10306,20 @@ MonoBehaviour:
   _randomPitchRange:
     Min: 0.6
     Max: 1.4
+--- !u!114 &8552101960507454170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631939245477408515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac39348337e4a8fbf75c81b50ac3646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxKnockdowns: 2
+  _currentKnockdowns: 0
 --- !u!1 &2560897641039674260
 GameObject:
   m_ObjectHideFlags: 0
