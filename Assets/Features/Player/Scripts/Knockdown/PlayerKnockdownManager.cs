@@ -21,8 +21,12 @@ public class PlayerKnockdownManager : MonoBehaviour
     {
         if (CurrentKnockdowns >= MaxKnockdowns)
         {
+            _maskRip.DisablePlayer();
+            _maskRip.OtherPlayerMaskRip.DisablePlayer();
+            
             _maskRip.Lose();
             _maskRip.OtherPlayerMaskRip.Win();
+            
             CurrentKnockdowns++;
             return;
         }

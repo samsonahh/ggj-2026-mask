@@ -26,8 +26,6 @@ public class MashMeter : MonoBehaviour
         
     [Header("Mash")]
     [SerializeField] private StringAsset _stretchOneShotSfxName;
-    [SerializeField] private StringAsset _ripWinSfxName;
-    [SerializeField] private StringAsset _ripFailSfxName;
     
     [Header("Passive Juice")]
     [SerializeField] private float _passiveCameraShakeInterval = 0.5f;
@@ -133,12 +131,6 @@ public class MashMeter : MonoBehaviour
     private void Win(Ripper winner)
     {
         _isMashing = false;
-
-        if (winner == Ripper.Ripper)
-        {
-            AudioManager.Instance.Play(_ripWinSfxName, AudioManager.MixerTarget.SFX);
-            AudioManager.Instance.Play(_ripFailSfxName, AudioManager.MixerTarget.SFX, null, Random.Range(0.4f, 1.6f));
-        }
         
         TimeScaleManager.Instance.StartImpactFrames(_hitStopTimeScale, _hitStopDuration);
         CameraShaker.Instance.ShakeCamera(_cameraShakeAmplitude, _cameraShakeFrequency, _cameraShakeDuration);

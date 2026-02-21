@@ -28,6 +28,8 @@ public class PlayerMaskRip : MonoBehaviour
 
     [SerializeField] private float _startMaskRipDelay = 0.5f;
     [SerializeField] private StringAsset _deathSfxName;
+    [SerializeField] private OneShotAudioPlayer _loseSfxPlayer;
+    [SerializeField] private OneShotAudioPlayer _winSfxPlayer;
     [SerializeField] private ClipTransition _deathAnimClip;
 
     [Header("Model Shake")]
@@ -203,12 +205,16 @@ public class PlayerMaskRip : MonoBehaviour
 
     public void Win()
     {
+        _winSfxPlayer.PlayAudio();
+        
         _playerController.StateMachine.ChangeState(WinState, true);
         DOVirtual.DelayedCall(_winDelay, () => { OnDelayedWin.Invoke(); });
     }
 
     public void Lose()
     {
+        _loseSfxPlayer.PlayAudio();
+        
         _playerController.StateMachine.ChangeState(LoseState, true);
         HideMask();
     }
